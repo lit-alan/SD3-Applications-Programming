@@ -10,56 +10,61 @@ package Lecture3;
  *The program then prompts the user to enter a loan ammount.
  *The program then exits but not before displaying on screen the total payment and monthly repayments.
  */
- import javax.swing.*;
+import java.util.Scanner;
+import javax.swing.*;
 
 public class TestIfElse {
 
-  /**Main method*/
-  public static void main(String[] args) {
-    double annualInterestRate = 0;
-    int numOfYears;
-    double loanAmount;
+    /**
+     * Main method
+     */
+    public static void main(String[] args) {
+        double annualInterestRate = 0;
+        int numOfYears;
+        double loanAmount;
 
-    // Enter number of years
-    String inputYears = JOptionPane.showInputDialog("Enter number of years (7, 15 and 30 only):");
-    numOfYears = Integer.parseInt(inputYears);
+        Scanner scanner = new Scanner(System.in);
 
-    // Find interest rate based on year
-    if (numOfYears == 7)
-      annualInterestRate = 7.25;
-    else if (numOfYears == 15)
-      annualInterestRate = 8.50;
-    else if (numOfYears == 30)
-      annualInterestRate = 9.0;
-    else   {
-      JOptionPane.showMessageDialog(null, "Wrong Number of Years", "Error", 1);
-      System.exit(0);
-    } // End else
+        // Enter number of years
+        System.out.println("Enter number of years (7, 15 and 30 only):");
+        numOfYears = scanner.nextInt();
 
-    // Calculate monthly interest rate
-    double monthlyInterestRate = annualInterestRate/1200;
+        // Find interest rate based on year
+        if (numOfYears == 7) {
+            annualInterestRate = 7.25;
+        } else if (numOfYears == 15) {
+            annualInterestRate = 8.50;
+        } else if (numOfYears == 30) {
+            annualInterestRate = 9.0;
+        } else {
+            System.out.println("Wrong Number of Years");
+            System.exit(0);
+        } // End else
 
-    // Enter loan amount
-    String inputLoan = JOptionPane.showInputDialog("Enter loan amount, for example 120000.95: ");
+        // Calculate monthly interest rate
+        double monthlyInterestRate = annualInterestRate / 1200;
 
-    // Parse inputLoan from a string to an Double
-    loanAmount = Double.parseDouble(inputLoan);
+        // Enter loan amount
+        System.out.println("Enter loan amount, for example 120000.95: ");
 
-    // Compute mortgage
-    double monthlyPayment = loanAmount*monthlyInterestRate/
-      (1-(Math.pow(1/(1+monthlyInterestRate), numOfYears*12)));
-    double totalPayment = monthlyPayment*numOfYears*12;
+        // Parse inputLoan from a string to an Double
+        loanAmount = scanner.nextDouble();
 
-    // Create a string which will hold the details of the mortgage
-    String output = "The monthly payment is " + (int)(monthlyPayment*100)/100.0;
-    output += "\nThe total payment is " + (int)(totalPayment*100)/100.0;
+        // Compute mortgage
+        double monthlyPayment = loanAmount * monthlyInterestRate
+                / (1 - (Math.pow(1 / (1 + monthlyInterestRate), numOfYears * 12)));
+        double totalPayment = monthlyPayment * numOfYears * 12;
 
-    // Display the mortgage details
-    JOptionPane.showMessageDialog(null,output , "Mortgage Application", JOptionPane.INFORMATION_MESSAGE);
+        // Create a string which will hold the details of the mortgage
+        String output = "The monthly payment is " + (int) (monthlyPayment * 100) / 100.0;
+        output += "\nThe total payment is " + (int) (totalPayment * 100) / 100.0;
 
-    // Exit the program
-    System.exit(0);
+        // Display the mortgage details
+        System.out.println(output);
 
-  }// End Main Method
+        // Exit the program
+        System.exit(0);
+
+    }// End Main Method
 
 }// End TestIfElse class
