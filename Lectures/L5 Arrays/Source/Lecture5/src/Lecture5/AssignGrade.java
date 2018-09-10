@@ -1,6 +1,6 @@
 package Lecture5;
 
-// AssignGrade.java: Assign gradsse
+// AssignGrade.java: Assign grades
 import java.util.Scanner;
 
 public class AssignGrade {
