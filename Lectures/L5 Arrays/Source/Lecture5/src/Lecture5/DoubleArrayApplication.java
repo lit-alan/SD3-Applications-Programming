@@ -1,13 +1,11 @@
 package Lecture5;
 
-import java.util.Scanner;
-
 public class DoubleArrayApplication {
 
     static int grades[][] = {{77, 68, 86, 73},
-    {76, 87, 89, 81},
-    {70, 90, 86, 81},
-    {34, 56, 79, 67}};
+                            {76, 87, 89, 81},
+                            {70, 90, 86, 81},
+                            {34, 56, 79, 67}};
 
     static String names[] = {"Alan", "John", "Aoife", "Lisa"};
     static String subjects[] = {"English", "Maths", "French", "Irish"};
@@ -17,10 +15,8 @@ public class DoubleArrayApplication {
 
     //define the main method
     public static void main(String args[]) {
-
-        Scanner sc = new Scanner(System.in);
-
-        //figure out how many students you are dealing with
+        
+       //figure out how many students you are dealing with
         numberOfStudents = names.length;
 
         //figure out how many students you are dealing with
@@ -51,7 +47,7 @@ public class DoubleArrayApplication {
 
         // assume first element of grages array is smallest
         int lowGrade = grades[0][0];
-        String op = "The student with the worst grade is " + names[0] + " and that grade was achieved  in " + subjects[0] + ":" + grades[0][0];
+        String op = "The student with the worst grade is " + names[0] + " and that grade was achieved  in " + subjects[0] + ": " + grades[0][0];
 
         // loop through rows of grades array
         for (int row = 0; row < numberOfStudents; row++) // loop through columns of current row
@@ -61,7 +57,7 @@ public class DoubleArrayApplication {
             {
                 if (grades[row][column] < lowGrade) {
                     lowGrade = grades[row][column];
-                    op = "The student with the worst grade is " + names[row] + " and that grade was achieved  in " + subjects[column] + ":" + grades[row][column];
+                    op = "The student with the worst grade is " + names[row] + " and that grade was achieved  in " + subjects[column] + ": " + grades[row][column];
                 }
             }
         }
@@ -74,7 +70,7 @@ public class DoubleArrayApplication {
     public static String maximum() {
         // assume first element of grages array is largest
         int highGrade = grades[0][0];
-        String op = "The student with the best grade is " + names[0] + " and that grade was achieved  in " + subjects[0] + ":" + grades[0][0];
+        String op = "The student with the best grade is " + names[0] + " and that grade was achieved  in " + subjects[0] + ": " + grades[0][0];
 
         // loop through rows of grades array
         for (int row = 0; row < numberOfStudents; row++) // loop through columns of current row
@@ -84,7 +80,7 @@ public class DoubleArrayApplication {
             {
                 if (grades[row][column] > highGrade) {
                     highGrade = grades[row][column];
-                    op = "The student with the best grade is " + names[row] + " and that grade was achieved  in " + subjects[column] + ":" + grades[row][column];
+                    op = "The student with the best grade is " + names[row] + " and that grade was achieved  in " + subjects[column] + ": " + grades[row][column];
 
                 }
             }
