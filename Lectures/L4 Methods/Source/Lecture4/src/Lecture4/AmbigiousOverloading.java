@@ -6,9 +6,9 @@ package Lecture4;
  */
 public class AmbigiousOverloading {
 
-   public static void main(String args[]) {
+    public static void main(String args[]) {
         System.out.println(max(1, 2));
-    }
+    }//end main
 
     public double max(int num1, double num2) {
         if (num1 > num2) {
@@ -16,20 +16,14 @@ public class AmbigiousOverloading {
         } else {
             return num2;
         }
-    }
+    }//end max(int,double)
 
-    
-}//end class
-        }
-    }
-
-    public int max(double num1, int num2) {
+    public double max(double num1, int num2) {
         if (num1 > num2) {
             return num1;
         } else {
             return num2;
         }
-    }
+    }//end max(double,int)
 
-    
 }//end class
