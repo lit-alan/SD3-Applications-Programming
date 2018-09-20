@@ -15,7 +15,7 @@ public class DoubleArrayApplication {
 
     //define the main method
     public static void main(String args[]) {
-        
+
        //figure out how many students you are dealing with
         numberOfStudents = names.length;
 
