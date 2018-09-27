@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * @author Alan.Ryan
  */
-public class Exercise1 {
+public class Exercise1 { 
 
        public static void main(String[] args) {
         int rands[] = new int[100];
