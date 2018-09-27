@@ -39,11 +39,12 @@ public class Exercise2 {
         //sort numbers in winning ticket
         Arrays.sort(winningNumbers); 
 
-        System.out.println("Winning Numbers Are: " + Arrays.toString(winningNumbers) + "\n");
-
         displayTickets(ticketNumbers, tickets);
        
+        System.out.println("\nWinning Numbers Are: " + Arrays.toString(winningNumbers) + "\n");
+
         checkForWinner(tickets, winningNumbers, ticketNumbers);
+        
         
         calculateNumberFrequency(tickets, mostPayed);
         
@@ -140,6 +141,7 @@ public class Exercise2 {
     ///////////////////////////////////////////////////////////////////////////
     private static void checkForWinner(int[][] tickets, int[] winningNumbers, String[] ticketNumbers) {
         int currentNumber, countMatches = 0;
+        boolean winner = false;
         for (int row = 0; row < NUMBER_OF_TICKETS; row++) {
 
             for (int col = 0; col < MAX_NUMBER_SELECTION; col++) {
@@ -154,11 +156,16 @@ public class Exercise2 {
 
             if (countMatches == MAX_NUMBER_SELECTION) {
                 System.out.println("Winning ticket number is " + ticketNumbers[row]);
+                winner = true;
             }//end if
 
             countMatches = 0;
 
         }//end for
+        
+        if (!winner)
+            System.out.println("\n*****There was no winner this time****\n");
+        
     }//end method checkForWinner
 
     /////////////////////////////////////////////////////////////////////////// 
