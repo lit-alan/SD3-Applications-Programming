@@ -11,11 +11,16 @@
 public class Employee {
     
     private double payRate;
-    private String SSN;
+
+    private String name;
+    
 
     public Employee(double payRate, String SSN) {
         this.payRate = payRate;
         this.SSN = SSN;
+    }
+
+    public Employee() {
     }
     
     
