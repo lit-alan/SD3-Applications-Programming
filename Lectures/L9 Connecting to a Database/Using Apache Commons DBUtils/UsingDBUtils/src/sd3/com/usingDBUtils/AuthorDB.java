@@ -4,11 +4,8 @@ import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -53,7 +50,7 @@ public class AuthorDB {
     ///////////////////////////////////////////////////////////////////////////////////
     public static List<Author> getAllAuthors() throws SQLException {
         
-        //my handler will convert rows in the DB to Author objects and place them in a list
+        //my handler will convert rows in the ResultSet to Author objects and place them in a list
         ResultSetHandler<List<Author>> handler = new BeanListHandler(Author.class);
         
         //execute the query and populate the list
@@ -82,18 +79,18 @@ public class AuthorDB {
     }  
 
      ///////////////////////////////////////////////////////////////////////////////////
-    static int[] batchAnAuthorInsert(String [][] params) throws SQLException {
-            return runner.batch(connection, "INSERT INTO authors (LastName, FirstName,YearBorn) VALUES (?,?,?)", params);
-
+    static int[] batchAnAuthorInsert(Object [][] params) throws SQLException {
+            return runner.batch(connection, "INSERT INTO authors (FirstName, LastName,YearBorn) VALUES (?,?,?)", params);
     }
     
      ///////////////////////////////////////////////////////////////////////////////////
     
     public static List<Author> getAllAuthorsByStrProc() throws SQLException {
        //create the callable statement
-       CallableStatement callableStatement = connection.prepareCall("{call getAllAuthors()}");
+       CallableStatement callableStatement = 
+               connection.prepareCall("{call getAllAuthors()}");
              
-       //my handler will convert rows in the DB to Author objects and place them in a list
+       //my handler will convert rows in the ResultSet to Author objects and place them in a list
        ResultSetHandler<List<Author>> handler = new BeanListHandler(Author.class);
        
        //return a list<Author> 
@@ -109,8 +106,8 @@ public class AuthorDB {
         //execute the query
         return runner.query(connection, "SELECT COUNT(*) FROM authors", handler);
     }
-    
-        public static BigDecimal getYearBornAverage() throws SQLException {
+
+    public static BigDecimal getYearBornAverage() throws SQLException {
 
         //for queries that return a single value, use a ScalarHandler
         //the SQL AVG function returns a BigDecimal
@@ -120,5 +117,34 @@ public class AuthorDB {
         return runner.query(connection, "SELECT AVG(YearBorn) FROM authors", handler);
     }
     
+    public static BigDecimal sumYearBorn() throws SQLException {
+
+        //for queries that return a single value, use a ScalarHandler
+        //the SQL SUM function returns a BigDecimal
+        ScalarHandler<BigDecimal> handler = new ScalarHandler();
+
+        //execute the query
+        return runner.query(connection, "SELECT SUM(YearBorn) FROM authors", handler);
+    }
+    
+      public static Integer getMaxYearBorn() throws SQLException {
+
+        //for queries that return a single value, use a ScalarHandler
+        //the SQL MAX function returns an Integer
+        ScalarHandler<Integer> handler = new ScalarHandler();
+
+        //execute the query
+        return runner.query(connection, "SELECT MAX(YearBorn) FROM authors", handler);
+    }
+      
+    public static Integer getMinYearBorn() throws SQLException {
+
+        //for queries that return a single value, use a ScalarHandler
+        //the SQL MIN function returns an Integer
+        ScalarHandler<Integer> handler = new ScalarHandler();
+
+        //execute the query
+        return runner.query(connection, "SELECT MIN(YearBorn) FROM authors", handler);
+    }
     
 }//end AuthorDB
