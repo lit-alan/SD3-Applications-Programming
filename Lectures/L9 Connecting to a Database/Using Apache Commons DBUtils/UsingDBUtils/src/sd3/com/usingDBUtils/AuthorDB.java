@@ -1,7 +1,9 @@
 package sd3.com.usingDBUtils;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -77,8 +79,22 @@ public class AuthorDB {
                                                                                 firstName, lastName,yearBorn,id );
     }  
 
+     ///////////////////////////////////////////////////////////////////////////////////
     static int[] batchAnAuthorInsert(String [][] params) throws SQLException {
             return runner.batch(connection, "INSERT INTO authors (LastName, FirstName,YearBorn) VALUES (?,?,?)", params);
 
+    }
+    
+     ///////////////////////////////////////////////////////////////////////////////////
+    
+    public static List<Author> getAllAuthorsByStrProc() throws SQLException {
+       //create the callable statement
+       CallableStatement callableStatement = connection.prepareCall("{call getAllAuthors()}");
+             
+       //my handler will convert rows in the DB to Author objects and place them in a list
+       ResultSetHandler<List<Author>> handler = new BeanListHandler(Author.class);
+       
+       //return a list<Author> 
+       return handler.handle(callableStatement.executeQuery());
     }
 }//end AuthorDB
