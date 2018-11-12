@@ -54,6 +54,12 @@ public class Main {
             
             System.out.println("Avg of YearBorn: " + AuthorDB.getYearBornAverage().intValue());
             
+            System.out.println("Sum of YearBorn: " + AuthorDB.sumYearBorn().intValue());
+           
+            System.out.println("Max of YearBorn: " + AuthorDB.getMaxYearBorn());
+            
+            System.out.println("Min of YearBorn: " + AuthorDB.getMinYearBorn());
+            
         } catch(SQLException ex) {
            System.out.println(ex);
        }
