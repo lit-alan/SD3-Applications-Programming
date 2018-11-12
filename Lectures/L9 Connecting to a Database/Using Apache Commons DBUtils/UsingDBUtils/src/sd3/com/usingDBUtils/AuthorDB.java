@@ -1,5 +1,6 @@
 package sd3.com.usingDBUtils;
 
+import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -100,13 +101,24 @@ public class AuthorDB {
     }
     
     public static Long countRecords() throws SQLException {
-          
-       //for queries that return a single value, use a ScalarHandler
-       ScalarHandler<Long> handler = new ScalarHandler();
-       
+
+        //for queries that return a single value, use a ScalarHandler
+        //the SQL count function returns a Long
+        ScalarHandler<Long> handler = new ScalarHandler();
+
         //execute the query
         return runner.query(connection, "SELECT COUNT(*) FROM authors", handler);
-
-
     }
+    
+        public static BigDecimal getYearBornAverage() throws SQLException {
+
+        //for queries that return a single value, use a ScalarHandler
+        //the SQL AVG function returns a BigDecimal
+        ScalarHandler<BigDecimal> handler = new ScalarHandler();
+
+        //execute the query
+        return runner.query(connection, "SELECT AVG(YearBorn) FROM authors", handler);
+    }
+    
+    
 }//end AuthorDB
