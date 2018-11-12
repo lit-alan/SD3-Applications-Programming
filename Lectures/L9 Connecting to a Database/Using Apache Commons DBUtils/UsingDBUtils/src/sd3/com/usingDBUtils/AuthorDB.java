@@ -13,6 +13,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 public class AuthorDB {
     
@@ -96,5 +97,16 @@ public class AuthorDB {
        
        //return a list<Author> 
        return handler.handle(callableStatement.executeQuery());
+    }
+    
+    public static Long countRecords() throws SQLException {
+          
+       //for queries that return a single value, use a ScalarHandler
+       ScalarHandler<Long> handler = new ScalarHandler();
+       
+        //execute the query
+        return runner.query(connection, "SELECT COUNT(*) FROM authors", handler);
+
+
     }
 }//end AuthorDB
