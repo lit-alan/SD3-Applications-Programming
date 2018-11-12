@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -74,4 +76,9 @@ public class AuthorDB {
      return runner.update(connection,"UPDATE authors SET FirstName=?,LastName=?, YearBorn =?  WHERE AuthorID=?",
                                                                                 firstName, lastName,yearBorn,id );
     }  
+
+    static int[] batchAnAuthorInsert(String [][] params) throws SQLException {
+            return runner.batch(connection, "INSERT INTO authors (LastName, FirstName,YearBorn) VALUES (?,?,?)", params);
+
+    }
 }//end AuthorDB

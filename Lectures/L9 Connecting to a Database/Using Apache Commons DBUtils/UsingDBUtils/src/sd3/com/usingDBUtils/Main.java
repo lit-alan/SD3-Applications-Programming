@@ -39,6 +39,13 @@ public class Main {
             displayAllAuthors(AuthorDB.getAllAuthors());
             
             
+            String[][] params = new String[][] { { "fred", "perry", "1985" }, { "AN", "Other", "1986" } };
+
+            int[] values = AuthorDB.batchAnAuthorInsert(params);
+            System.out.println("Update " + values.length + " record(s)");            
+            list = AuthorDB.getAllAuthors();
+            displayAllAuthors(list);
+            
        } catch(SQLException ex) {
            System.out.println(ex);
        }
