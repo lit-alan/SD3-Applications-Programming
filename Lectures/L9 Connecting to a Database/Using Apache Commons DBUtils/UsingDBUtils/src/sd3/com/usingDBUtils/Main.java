@@ -39,14 +39,22 @@ public class Main {
             displayAllAuthors(AuthorDB.getAllAuthors());
             
             
-            String[][] params = new String[][] { { "fred", "perry", "1985" }, { "AN", "Other", "1986" } };
+            Object[][] params = new Object[][] { { "fred", "perry", 1985 }, { "AN", "Other", 1986 } };
 
             int[] values = AuthorDB.batchAnAuthorInsert(params);
             System.out.println("Update " + values.length + " record(s)");            
             list = AuthorDB.getAllAuthors();
             displayAllAuthors(list);
             
-       } catch(SQLException ex) {
+            System.out.println("All Authors After Calling Stored Procedure");            
+            list = AuthorDB.getAllAuthorsByStrProc();
+            displayAllAuthors(list);
+   
+            System.out.println("TOTAL Records: " + AuthorDB.countRecords());
+            
+            System.out.println("Avg of YearBorn: " + AuthorDB.getYearBornAverage().intValue());
+            
+        } catch(SQLException ex) {
            System.out.println(ex);
        }
        finally {
