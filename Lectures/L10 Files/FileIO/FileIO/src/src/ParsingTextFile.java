@@ -44,6 +44,7 @@ public class ParsingTextFile {
       in = new StreamTokenizer(frs);
       out = new PrintWriter(fws);
 
+   
       // Read first token
       in.nextToken();
 
@@ -64,13 +65,14 @@ public class ParsingTextFile {
         // Get midterm2
         if (in.nextToken() == StreamTokenizer.TT_NUMBER)
           midterm2 = in.nval;
-        else
-          System.out.println("Bad file format");
-
+        else {
+            System.out.println("Bad file format");
+            
+        }
         // Get final score
         if (in.nextToken() == StreamTokenizer.TT_NUMBER)
           finalScore = in.nval;
-        else
+        else 
           System.out.println("Bad file format");
         
         
