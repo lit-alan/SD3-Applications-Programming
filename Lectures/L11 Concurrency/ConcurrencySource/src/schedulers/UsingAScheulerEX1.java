@@ -18,7 +18,7 @@ public class UsingAScheulerEX1 {
         int aDelay = 5;
         Runnable task = () -> System.out.println("Task is delayed by " + aDelay + " second(s) " + new Date());
 
-        //schedule the ztask, which is a runnable. Remember a runnable doesn't return a value
+        //schedule the task, which is a runnable. Remember a runnable doesn't return a value
         ScheduledFuture<?> future = executor.schedule(task, aDelay, TimeUnit.SECONDS);
 
         long remainingDelay = future.getDelay(TimeUnit.MILLISECONDS);

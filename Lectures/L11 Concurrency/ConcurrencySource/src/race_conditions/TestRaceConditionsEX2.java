@@ -38,9 +38,9 @@ class Counter {
 
     public void  add(int value) {
         
-        synchronized(this) {
+       synchronized(this) {
             this.count = this.count + value;
-        }
+       }
     }
 
     public int getCount() {
