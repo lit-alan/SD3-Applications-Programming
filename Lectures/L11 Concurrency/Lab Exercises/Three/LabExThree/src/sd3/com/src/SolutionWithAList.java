@@ -65,7 +65,7 @@ public class SolutionWithAList {
             in.nextToken();
 
             in.nextToken(); //first token of first record
-
+            //in.ordinaryChar('-'); 
             while (in.ttype != StreamTokenizer.TT_EOF) {
                 
                 //read code
