@@ -26,8 +26,6 @@ public class RegistrationServerUsingObjectStream  {
       // if the file does not exist
       File f = new File("Student.dat");
       objOutStream =  new ObjectOutputStream(new FileOutputStream(f));
-      objInStream =  new ObjectInputStream(new FileInputStream(f));
-
      
     }//end try
     
