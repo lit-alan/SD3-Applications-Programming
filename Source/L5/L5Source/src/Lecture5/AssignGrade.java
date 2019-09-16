@@ -34,11 +34,11 @@ public class AssignGrade {
         for (int i = 0; i < scores.length; i++) {
             if (scores[i] >= 85) {
                 grade = 'A';
-            } else if (scores[i] <= 84 && scores[i] >= 70) {
+            } else if (scores[i] >= 70) {
                 grade = 'B';
-            } else if (scores[i] <= 69 && scores[i] >= 50) {
+            } else if (scores[i] >= 50) {
                 grade = 'C';
-            } else if (scores[i] <= 49 && scores[i] >= 40) {
+            } else if (scores[i] >= 40) {
                 grade = 'D';
             } else {
                 grade = 'F';
