@@ -1,2 +1,0 @@
-generics.Entry
-generics.tt
