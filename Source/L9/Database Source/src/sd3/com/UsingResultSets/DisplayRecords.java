@@ -21,6 +21,7 @@ public class DisplayRecords {
             Books.resetTableInDB();
             
             //create the connection object
+            
             //ATTN: username and password must be changed depending on the settings on your database server
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "sduser", "pass");
 
@@ -54,6 +55,7 @@ public class DisplayRecords {
         catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);
         }//end catch
+        
         finally {
             try {
                 statement.close();
