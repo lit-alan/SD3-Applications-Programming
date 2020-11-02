@@ -23,7 +23,7 @@ public class DisplayRecords {
             //create the connection object
             
             //ATTN: username and password must be changed depending on the settings on your database server
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "sduser", "pass");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "root", "");
 
             //create a statement object.
             //We will use this object to carry our query to the database
