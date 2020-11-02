@@ -1,8 +1,8 @@
-# SD3-Applications-Programming
+# SD3-Applications-Programming :smiley:
 
 This module is designed to equip learners with features required to build comprehensive and highly responsive Java applications.
 
-On completion of this module the learner will/should be able to...
+On completion of this module the learner will/should be able to.
 
 :heavy_check_mark: Deploy appropriate theory, practices and tools for the implementation of robust Java solutions.
 

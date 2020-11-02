@@ -30,7 +30,7 @@ public class DisplayRecords {
             statement = connection.createStatement();
 
             //exexute our query, which will lead to the return of a resultset
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM titles");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM authors");
 
             ResultSetMetaData metaData = resultSet.getMetaData();
 
