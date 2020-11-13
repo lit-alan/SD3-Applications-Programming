@@ -7,8 +7,7 @@ public class Author {
     private String LastName;
     private int YearBorn;
 
-    public Author() { //DBUtils requires a no args constructor
-    }
+    public Author() {}  //DBUtils requires a no args constructor
 
     
     public Author(int AuthorID, String FirstName, String LastName, int YearBorn) {
