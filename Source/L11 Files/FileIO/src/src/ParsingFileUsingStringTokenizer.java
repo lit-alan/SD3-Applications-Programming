@@ -1,33 +1,58 @@
 package src;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
 public class ParsingFileUsingStringTokenizer {
 
-    public static void main(String[] args) throws IOException {
+    static FileWriter fws = null;
+    static PrintWriter out = null;
 
-        Path p = Paths.get("in.dat");
+    public static void main(String[] args) {
 
-        List<String> fileContents = Files.readAllLines(p);
+        try {
+            fws = new FileWriter("summary.dat");
+            out = new PrintWriter(fws);
 
-        for (String aLine : fileContents) {
-            printTokens(aLine);
+            Path p = Paths.get("in.dat");
+
+            List<String> fileContents = Files.readAllLines(p);
+
+            for (String aLine : fileContents) {
+                writeARecord(aLine);
+            }
+
+            System.out.println("Done! Check summary file");
+        } catch (IOException ex) {
+            System.out.println(ex);
+        } finally {
+            try {
+
+                if (fws != null) {
+                    fws.close();
+                }
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
         }
 
     }
 
-    public static void printTokens(String str) {
+    public static void writeARecord(String str) {
 
         StringTokenizer tokenizer = new StringTokenizer(str, " ");
-        while (tokenizer.hasMoreElements()) {
-            System.out.print(tokenizer.nextToken() + " ");
-        }
-        System.out.println("");
+        String sname = tokenizer.nextToken();
+        double midterm1 = Double.parseDouble(tokenizer.nextToken());
+        double midterm2 = Double.parseDouble(tokenizer.nextToken());
+        double finalScore = Double.parseDouble(tokenizer.nextToken());
+        double total = midterm1 * 0.3 + midterm2 * 0.3 + finalScore * 0.4;
+        out.println(sname + ": " + total);
+
     }
 }
