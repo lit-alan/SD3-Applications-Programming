@@ -2,9 +2,11 @@ package LabExerciseSource;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 
@@ -26,7 +28,7 @@ public class Exercise10 {
         ExecutorService exe = Executors.newCachedThreadPool();
  
         //odd task
-        exe.submit(() -> {
+         exe.submit(()-> {
             int oddSum = 0;
             for (int i = 0; i < LIMIT; i++) {
                 if ( i % 2 != 0)
@@ -38,10 +40,10 @@ public class Exercise10 {
 //                                      .sum();
     
            System.out.println("Sum of odd numbers in array: " + oddSum);
-            
+           
 
         });
-
+        
         //even task
         exe.submit(()-> {
             int evenSum = 0;
@@ -82,7 +84,6 @@ public class Exercise10 {
         exe.submit(() -> {
 
             for (int i = 0; i < LIMIT; i++) {
-                System.out.println("here");
                 System.out.print(numbers[i] + " ");
 
                 while (numbers[i] == 1) {
