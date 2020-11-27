@@ -1,0 +1,4 @@
+Location    	AveragePrice
+Dublin    	 28239.0
+Cork      	 4489.8
+Limerick  	 5498.5
