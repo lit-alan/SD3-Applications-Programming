@@ -28,28 +28,49 @@ public class Exercise10 {
         ExecutorService exe = Executors.newCachedThreadPool();
  
         //odd task
-         exe.submit(()-> {
+//         exe.submit(()-> {
+//            int oddSum = 0;
+//            for (int i = 0; i < LIMIT; i++) {
+//                if ( numbers[i] % 2 != 0)
+//                    oddSum += numbers[i];
+//            }
+////           Alternatively, use streams and a Lambda expression
+////           int oddSum = (int) Arrays.stream(numbers)
+////                                      .filter(i -> i % 2 != 0)
+////                                      .sum();
+//    
+//           System.out.println("Sum of odd numbers in array: " + oddSum);
+//           
+//
+//        });
+        //odd task
+         Callable<Integer> oddTask  =()-> {
             int oddSum = 0;
             for (int i = 0; i < LIMIT; i++) {
-                if ( i % 2 != 0)
-                    oddSum += i;
+                if ( numbers[i] % 2 != 0)
+                    oddSum += numbers[i];
             }
 //           Alternatively, use streams and a Lambda expression
 //           int oddSum = (int) Arrays.stream(numbers)
 //                                      .filter(i -> i % 2 != 0)
 //                                      .sum();
-    
-           System.out.println("Sum of odd numbers in array: " + oddSum);
+           return oddSum;
+          // System.out.println("Sum of odd numbers in array: " + oddSum);
            
 
-        });
+        };
         
+         
+         Future<Integer> fut = exe.submit(oddTask);
+         int oddTaskValue = fut.get();
+         System.out.println("Sum of odd values is " + oddTaskValue);
+         
         //even task
         exe.submit(()-> {
             int evenSum = 0;
             for (int i = 0; i < LIMIT; i++) {
-                if ( i % 2 == 0)
-                    evenSum += i;
+                if ( numbers[i]  % 2 == 0)
+                    evenSum += numbers[i];
             }
 //            Alternatively, use streams and a Lambda expression
 //            int evenSum = (int) Arrays.stream(numbers)
