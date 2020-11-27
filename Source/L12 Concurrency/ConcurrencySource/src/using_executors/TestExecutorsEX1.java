@@ -21,10 +21,26 @@ public class TestExecutorsEX1 {
 
         };
         
-        ExecutorService exe = Executors.newCachedThreadPool();
+           Runnable soLong = () -> {
+            for (int i = 1; i <= 100; i++) {
+                System.out.println("so Long " + i);
+            }
+
+        };
+           Runnable farewell = () -> {
+            for (int i = 1; i <= 100; i++) {
+                System.out.println("farewell " + i);
+            }
+
+        };
+        
+        ExecutorService exe = Executors.newFixedThreadPool(2);
         exe.submit(hello);
         exe.submit(goodbye);
+        exe.submit(soLong);
+        exe.submit(farewell);
         
+        exe.shutdown();
       
     }//end main
     

@@ -7,7 +7,7 @@ public class TestFunctional {
         Runnable goodbye = () -> {
             for (int i = 1; i <= 100; i++) {
                     System.out.println("Goodbye " + i);
-                }
+            }
         };
 
         Runnable hello = () -> {

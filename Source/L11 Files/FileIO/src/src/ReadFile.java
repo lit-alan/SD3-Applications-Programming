@@ -10,20 +10,19 @@ import java.util.List;
 public class ReadFile {
 
     public static void main(String[] args) {
-        Path pathToTargetFile = Paths.get("SampleFile.txt");
+        Path pathToTargetFile = Paths.get("eventmonitoring.txt");
 
         List<String> lines;
         try {
             lines = Files.readAllLines(pathToTargetFile, Charset.forName("UTF-8"));
-            String output = "";
 
             System.out.println("The file \"" + pathToTargetFile.getFileName() + "\" has " + lines.size() + " lines\n");
 
             for (String item : lines) {
-                output += item + "\n";
+                System.out.println(item + "\n");
             }//end for
 
-            System.out.println(output);
+           
 
         }//end try
         catch (IOException ex) {
