@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 import sd3.com.concurrency.Search;
 import sd3.com.model.Record;
 
-public class SolutionWithAList {
+public class SolutionWithStreamTokenizer {
 
     //I'm going to read the data from the file into a List<Record>
     static List<Record> list = new ArrayList();

@@ -51,6 +51,7 @@ public class SolutionWithSubstring {
         List<Callable<Integer>> tasks = Arrays.asList(
             new Search(list, r -> r.getCode().equalsIgnoreCase("MF")),
             new Search(list, r -> r.getCode().equalsIgnoreCase("MO")),
+            new Search(list, r -> r.getName().startsWith("AL")),
             new Search(list, r -> r.getCode().equalsIgnoreCase("FO")),
             new Search(list, r -> r.getIndicator().equalsIgnoreCase("LY")),
             new Search(list, r -> r.getIndicator().equalsIgnoreCase("LN")));
@@ -62,7 +63,8 @@ public class SolutionWithSubstring {
             System.out.println(list.size() + " records found in " + file);
             System.out.println("MF found " + futures.get(0).get() + " times");
             System.out.println("MO found " + futures.get(1).get() + " times");
-            System.out.println("FO found " + futures.get(2).get() + " times");
+            System.out.println("Number of names that start with AL " + futures.get(2).get() + " times");
+            System.out.println("LY found " + futures.get(3).get() + " times");
             System.out.println("LY found " + futures.get(3).get() + " times");
             System.out.println("LN found " + futures.get(4).get() + " times");
         } catch (InterruptedException | ExecutionException ex) {
