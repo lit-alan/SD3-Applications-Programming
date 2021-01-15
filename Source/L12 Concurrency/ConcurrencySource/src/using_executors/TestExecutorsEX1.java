@@ -34,7 +34,7 @@ public class TestExecutorsEX1 {
 
         };
         
-        ExecutorService exe = Executors.newFixedThreadPool(2);
+        ExecutorService exe = Executors.newFixedThreadPool(4);
         exe.submit(hello);
         exe.submit(goodbye);
         exe.submit(soLong);

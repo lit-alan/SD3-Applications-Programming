@@ -39,6 +39,12 @@ class Counter {
     public void  add(int value) {
         
        synchronized(this) {
+           
+           try {
+               Thread.sleep(2000);
+           } catch (InterruptedException ex) {
+               Logger.getLogger(Counter.class.getName()).log(Level.SEVERE, null, ex);
+           }
             this.count = this.count + value;
        }
     }

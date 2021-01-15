@@ -15,7 +15,7 @@ public class UsingAScheulerEX1 {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
         System.out.println(new Date());
-        int aDelay = 5;
+        int aDelay = 10;
         Runnable task = () -> System.out.println("Task is delayed by " + aDelay + " second(s) " + new Date());
 
         //schedule the task, which is a runnable. Remember a runnable doesn't return a value

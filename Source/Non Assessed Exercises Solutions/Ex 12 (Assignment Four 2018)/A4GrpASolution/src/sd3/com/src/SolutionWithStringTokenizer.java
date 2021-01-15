@@ -47,11 +47,11 @@ public class SolutionWithStringTokenizer {
 
         
         ExecutorService exe = Executors.newCachedThreadPool();
-        Future<Double> f1 = exe.submit(new Search(list, "Paul", 2000, 2017));
+        Future<Double> f1 = exe.submit(new Search(list, "Alan",2017, 2000));
         
         nf.setMaximumFractionDigits(2);
         System.out.println("Percentage Diff " + nf.format(f1.get()));
-        exe.submit(new Print(list, "Zack"));
+        exe.submit(new Print(list, "Tom"));
         
         exe.shutdown();
     }

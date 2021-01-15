@@ -13,11 +13,13 @@ public class UsingCallablesAndFuturesEX1 {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         
-        Callable<Integer> task = () -> {
-            //return random int in the range 1 - 100
-            //TimeUnit.SECONDS.sleep(5);
-            return ThreadLocalRandom.current().nextInt(1,100+1);
-        };
+//        Callable<Integer> task = () -> {
+//            //return random int in the range 1 - 100
+//            //TimeUnit.SECONDS.sleep(5);
+//            return ThreadLocalRandom.current().nextInt(1,100+1);
+//        };
+
+MyTask task = new MyTask(50000);
 
         ExecutorService exe = Executors.newCachedThreadPool();
         Future<Integer> future = exe.submit(task);
@@ -43,4 +45,20 @@ public class UsingCallablesAndFuturesEX1 {
         
     }
 
+}
+
+class MyTask implements Callable<Integer> {
+
+    int max;
+
+    public MyTask(int max) {
+        this.max = max;
+    }
+    
+    
+    @Override
+    public Integer call() throws Exception {
+       return ThreadLocalRandom.current().nextInt(1,max+1);
+    }
+    
 }
