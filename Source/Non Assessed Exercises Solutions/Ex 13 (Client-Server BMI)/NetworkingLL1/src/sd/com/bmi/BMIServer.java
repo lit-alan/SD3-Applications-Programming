@@ -14,26 +14,26 @@ public class BMIServer {
     public static void main(String[] args) {
 
         String clientsIP = "";
-        
+
         NumberFormat formatter = NumberFormat.getNumberInstance();
-     
+
         try {
-            
+
             ServerSocket serverSocket = new ServerSocket(8000);
 
             System.out.println("Server started at " + new Date());
-            
+
+            // Listen for a new connection request
+            Socket connectToClient = serverSocket.accept();
+            // Find the client's IP address
+            InetAddress clientInetAddress = connectToClient.getInetAddress();
+            clientsIP = clientInetAddress.getHostAddress();
+
+            DataInputStream isFromClient = new DataInputStream(connectToClient.getInputStream());
+            DataOutputStream osToClient = new DataOutputStream(connectToClient.getOutputStream());
+
             while (true) {
-                // Listen for a new connection request
-                Socket connectToClient = serverSocket.accept();
-
-                // Find the client's IP address
-                InetAddress clientInetAddress = connectToClient.getInetAddress();
-                clientsIP = clientInetAddress.getHostAddress();
-
-                DataInputStream isFromClient = new DataInputStream(connectToClient.getInputStream());
-                DataOutputStream osToClient = new DataOutputStream(connectToClient.getOutputStream());
-
+                            
                 double height = isFromClient.readDouble();
                 double weight = isFromClient.readDouble();
 
