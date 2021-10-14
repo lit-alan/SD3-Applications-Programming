@@ -13,3 +13,5 @@ On completion of this module the learner will/should be able to.
 :heavy_check_mark: Critically evaluate client/server applications.
 
 The module is 100% assessed by continuous assessment of laboratory/workshop based assignments and assessments. The module will be delivered through a combination of lectures, lab-lectures and practical classes. The lectures and lab-lectures will drive the content which will then be reinforced in the practical classes. Self-directed learning will be strongly encouraged throughout this module.
+
+This is the updated content! Enjoy!!!!
