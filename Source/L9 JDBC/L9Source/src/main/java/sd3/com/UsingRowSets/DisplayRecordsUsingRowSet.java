@@ -26,7 +26,7 @@ public class DisplayRecordsUsingRowSet {
             rowSet.setUrl("jdbc:mysql://localhost:3306/books");
             rowSet.setUsername("root");
             rowSet.setPassword("");
-            rowSet.setCommand("ALTER TABLE titles add CopiesSold double");
+            rowSet.setCommand("Select * from authors");
             rowSet.execute();
 
             //get the meta data as before
