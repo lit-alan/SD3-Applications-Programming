@@ -23,7 +23,8 @@ public class DisplayRecords {
             
             //create the connection object
             //ATTN: username and password must be changed depending on the settings on your database server
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "sduser", "pass");
+            connection = 
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "sduser", "pass");
 
             //create a statement object.
             //We will use this object to carry our query to the database
@@ -36,14 +37,14 @@ public class DisplayRecords {
 
             int numberOfColumns = metaData.getColumnCount();
 
-            for (int i = 1; i < numberOfColumns; i++) {
+            for (int i = 1; i <= numberOfColumns; i++) {
                 results += metaData.getColumnName(i) + "\t";
             }
 
             results += "\n";
 
             while (resultSet.next()) {
-                for (int i = 1; i < numberOfColumns; i++) {
+                for (int i = 1; i <= numberOfColumns; i++) {
                     results += resultSet.getObject(i) + "\t\t";
                 }//end for
 
