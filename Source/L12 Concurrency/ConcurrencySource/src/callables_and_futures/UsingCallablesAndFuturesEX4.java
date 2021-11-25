@@ -16,13 +16,13 @@ public class UsingCallablesAndFuturesEX4 {
         ExecutorService executor = Executors.newCachedThreadPool();
 
         List<Callable<String>> callables = Arrays.asList(
-                callable("Monday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Tuesday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Wednesday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Thursday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Friday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Saturday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 51)));
+                callable("Monday", ThreadLocalRandom.current().nextInt(1, 50 + 1)),
+                callable("Tuesday", ThreadLocalRandom.current().nextInt(1, 55 + 1)),
+                callable("Wednesday", ThreadLocalRandom.current().nextInt(1, 555 + 1)),
+                callable("Thursday", ThreadLocalRandom.current().nextInt(1, 550 + 1)),
+                callable("Friday", ThreadLocalRandom.current().nextInt(1, 500 + 1)),
+                callable("Saturday", ThreadLocalRandom.current().nextInt(1, 500 + 1)),
+                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 5)));
 
         String future = executor.invokeAny(callables);
 

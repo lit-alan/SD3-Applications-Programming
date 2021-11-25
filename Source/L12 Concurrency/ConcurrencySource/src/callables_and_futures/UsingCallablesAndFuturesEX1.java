@@ -15,7 +15,7 @@ public class UsingCallablesAndFuturesEX1 {
         
         Callable<Integer> task = () -> {
             //return random int in the range 1 - 100
-            //TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5);
             return ThreadLocalRandom.current().nextInt(1,100+1);
         };
 
