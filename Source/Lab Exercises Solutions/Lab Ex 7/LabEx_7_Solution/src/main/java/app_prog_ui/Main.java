@@ -111,6 +111,7 @@ public class Main {
         }
         System.out.println("Number of customers " + list.size());
         list.forEach(System.out::println); //the equilavent of looping over the list and displaying each object in it
+ 
         Console.displayLine();
     }
     

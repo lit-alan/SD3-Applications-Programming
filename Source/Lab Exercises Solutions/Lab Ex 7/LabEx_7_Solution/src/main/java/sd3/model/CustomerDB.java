@@ -48,9 +48,9 @@ public class CustomerDB {
         ResultSetHandler<List<Customer>> handler = new BeanListHandler(Customer.class);
         
         //execute the query and populate the list
-        List<Customer> list = runner.query(connection, "SELECT * FROM customers ORDER BY customerName ASC ", handler);
+        return runner.query(connection, "SELECT * FROM customers ORDER BY customerName ASC ", handler);
         
-        return list;
+     //   return list;
     }//end getAllAuthors
     
         ///////////////////////////////////////////////////////////////////////////////////
