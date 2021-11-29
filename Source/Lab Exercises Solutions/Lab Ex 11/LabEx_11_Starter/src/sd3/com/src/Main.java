@@ -2,6 +2,7 @@ package sd3.com.src;
 
 import java.util.ArrayList;
 import java.util.List;
+import sd3.com.io.FileIO;
 import sd3.com.model.Record;
 
 public class Main {
@@ -11,8 +12,7 @@ public class Main {
     static String file = "census.txt";
     
     public static void main(String[] args) {
-       
-        
+   
     }//end main
 
 
