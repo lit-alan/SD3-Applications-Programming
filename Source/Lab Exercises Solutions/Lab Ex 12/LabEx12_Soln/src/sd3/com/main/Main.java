@@ -38,8 +38,10 @@ public class Main {
         int delay = 3;
         int period = 5;
         scheduledexe.scheduleAtFixedRate(new PrintPopularName(list), delay, period, TimeUnit.SECONDS);
-
+      
+       // scheduledexe.shutdown();
         exe.shutdown();
+      
 
     }
 }
@@ -134,9 +136,9 @@ class PrintPopularName implements Runnable {
 //        }
 //           
 
-        list.stream().filter((n) -> n.getYear() == randomYear && n.getGender().equals("M"))
+       list.stream().filter((n) -> n.getYear() == randomYear && n.getGender().equals("M"))
                                        .findFirst()
-                                       .ifPresent(System.out::println);
+                                      .ifPresent(System.out::println);
     }//end run
 
 }//end class

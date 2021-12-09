@@ -7,6 +7,10 @@ public class Name {
     private String name;
     private int occurrences;
 
+    public Name() {
+    }
+
+    
     public Name(String timeZone, String gender, int year, String Name, int occurrences) {
         this.timeZone = timeZone;
         this.gender = gender;
