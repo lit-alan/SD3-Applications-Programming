@@ -1,6 +1,7 @@
 package sd3.com.main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -8,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeoutException;
+import java.util.stream.Collectors;
 import sd3.com.io.FileIO;
 import sd3.com.model.Name;
 
@@ -75,5 +77,10 @@ class SearchTexas implements Callable<List<Name>> {
             }
         }
         return filterdList;
+
+//    return  list.stream()
+//                .filter(n -> n.getCumulativeFrequency() >= lowerBound && n.getCumulativeFrequency() <= upperBound && n.getCity().equals(city))
+//                .sorted(Comparator.comparing(Name::getName)) //the names are sorted alphabetically so this step is superfluous
+//                .collect(Collectors.toList()); //convert the stream to a list
     }
 }
