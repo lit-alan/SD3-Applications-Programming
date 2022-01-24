@@ -21,7 +21,7 @@ public class CircleServer {
           
             // Start listening for connections on the server socket
             Socket connectToClient = serverSocket.accept();
-  
+            System.out.println("At last a client");
             // Create an input stream to get data from the client
             DataInputStream isFromClient = new DataInputStream(
                     connectToClient.getInputStream());
@@ -48,12 +48,8 @@ public class CircleServer {
                 // Compute area
                 double area = radius * radius * Math.PI;
 
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(CircleServer.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 // Send the result to the client
+                osToClient.writeUTF("area");
                 osToClient.writeDouble(area);
                 osToClient.flush();
 
