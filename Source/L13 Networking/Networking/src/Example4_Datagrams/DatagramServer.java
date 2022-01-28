@@ -54,7 +54,7 @@ public class DatagramServer {
                 //send area to the client in a packet
                 sendPacket.setAddress(recievePacket.getAddress());
                 sendPacket.setPort(recievePacket.getPort());
-                sendPacket.setData(new Double(area).toString().getBytes());
+                sendPacket.setData(Double.toString(area).getBytes());
                 socket.send(sendPacket);
 
             }//end while

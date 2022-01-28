@@ -49,7 +49,7 @@ public class CircleServer {
                 double area = radius * radius * Math.PI;
 
                 // Send the result to the client
-                osToClient.writeUTF("area");
+              
                 osToClient.writeDouble(area);
                 osToClient.flush();
 

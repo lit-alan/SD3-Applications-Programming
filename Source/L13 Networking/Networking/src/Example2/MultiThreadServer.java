@@ -26,7 +26,7 @@ public class MultiThreadServer {
                 Socket connectToClient = serverSocket.accept();
 
                 // Print the new connect number on the console
-                System.out.println("Start thread for client " + clientNo);
+                  System.out.println("Start thread for client " + clientNo);
 
                 // Find the client's host name, and IP address
                 InetAddress clientInetAddress = connectToClient.getInetAddress();

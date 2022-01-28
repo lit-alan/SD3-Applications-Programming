@@ -25,7 +25,7 @@ public class CircleClient {
             // Create an output stream to send data to the server
             DataOutputStream osToServer
                     = new DataOutputStream(connectToServer.getOutputStream());
-
+ 
             // Continuously send radius and receive area from the server
             while (true) {
                 // Read the radius from the keyboard
