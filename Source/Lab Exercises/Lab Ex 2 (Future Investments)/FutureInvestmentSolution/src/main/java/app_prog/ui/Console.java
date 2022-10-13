@@ -1,4 +1,4 @@
-package sd3.app_prog.ui;
+package app_prog.ui;
 
 import java.util.Scanner;
 

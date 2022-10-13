@@ -1,4 +1,4 @@
-package sd3.app_prog.model;
+package app_prog.model;
 
 public class Investment {
     

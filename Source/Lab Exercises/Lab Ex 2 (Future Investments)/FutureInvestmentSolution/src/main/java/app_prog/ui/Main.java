@@ -1,7 +1,6 @@
-package sd3.app_prog.ui;
+package app_prog.ui;
 
-import sd3.app_prog.model.Investment;
-
+import app_prog.model.Investment;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
