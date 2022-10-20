@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sd3.com.src;
+package classes;
+
+import interfaces.MathOperation;
 
 import java.util.Random;
 
@@ -11,7 +13,7 @@ import java.util.Random;
  *
  * @author alan.ryan
  */
-public class LabEx1 {
+public class LabEx4_Main {
 
     public static void main(String[] args) {
 
@@ -30,34 +32,30 @@ public class LabEx1 {
 
         
         //task three
-	MathOperation add2 = (int a, int b) -> a + b;
+	    MathOperation add2 = (int a, int b) -> a + b;
         System.out.println("3 + 4 + 1 = " + operate(operate(3, 4, add2), 1, add2));
 
         //task four
-		 MathOperation mult2 = (int a, int b) -> a * b;
+		MathOperation mult2 = (int a, int b) -> a * b;
         System.out.println("2 * 2 * 2 = " + operate(operate(2, 2, mult2), 2, mult2));
 
         //task five
         MathOperation larger = (int a, int b)
-                -> {
-            if (a > b) {
-                return a;
-            } else {
-                return b;
-            }
-        };
+                -> (a > b) ? a : b; //ternary operator (aka short hand if-else statement)
+
+//        {
+//            if (a > b) {
+//                return a;
+//            } else {
+//                return b;
+//            }
+//        };
 
         System.out.println("Larger of 3 and 4 is " + operate(4, 3, larger));
 
         //task six
         MathOperation smaller = (int a, int b)
-                -> {
-            if (a < b) {
-                return a;
-            } else {
-                return b;
-            }
-        };
+                -> (a < b) ? a : b;
 
         System.out.println("Smaller of 3 and 4 is " + operate(4, 3, smaller));
 
