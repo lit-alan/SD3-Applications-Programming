@@ -24,8 +24,14 @@ public class UpdateRecord {
             //We will use this object to carry our query to the database
             statement = connection.createStatement();
 
-            String updatetSQL = "UPDATE authors SET FirstName = 'Brendan', LastName = 'Watson', YearBorn = '1967'  WHERE LastName = 'Guinane'";
+            String fNAme = "Brendan";
+            String lName = "Watson";
+            int year = 1967;
 
+
+            String updatetSQL = "UPDATE authors SET FirstName = '" + fNAme + "', LastName = '" + lName + "', YearBorn = '" + year + "'  WHERE LastName = 'Guinane'";
+            String updatetSQLV2 = "UPDATE authors SET FirstName = ?, LastName = ?, YearBorn =? WHERE LastName = 'Guinane'";
+            System.out.println(updatetSQL);
             int rowCount = statement.executeUpdate(updatetSQL);
 
             System.out.println(rowCount + " row updated\n");
