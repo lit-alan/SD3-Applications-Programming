@@ -16,6 +16,6 @@ The module is 100% assessed by continuous assessment of laboratory/workshop base
 
 Students who fail this module will be required to sit a repeat CA examination in the Autumn.
 
-Tis is an update 1
+This is an update 1
 
-Tis is an update 2
+
