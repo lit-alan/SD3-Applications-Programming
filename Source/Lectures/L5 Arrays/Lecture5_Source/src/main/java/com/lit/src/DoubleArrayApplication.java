@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class DoubleArrayApplication {
 
-    static int grades[][] = {{77, 68, 86, 73},
-    {76, 87, 89, 81},
-    {70, 90, 86, 81},
-    {34, 56, 79, 67}};
+    static int grades[][] = {
+            {77, 68, 86, 73},
+            {76, 87, 89, 81},
+            {70, 90, 86, 81},
+            {34, 56, 79, 67}
+    };
 
     static String names[] = {"Alan", "John", "Aoife", "Lisa"};
     static String subjects[] = {"English", "Maths", "French", "Irish"};
