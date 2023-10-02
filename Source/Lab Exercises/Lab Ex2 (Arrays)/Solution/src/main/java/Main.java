@@ -69,7 +69,7 @@ public class Main {
         int lastValue = matrix[ROWS-1][COLS-1];
 
             for (int i = 0; i < ROWS; i++) {
-            int nextRowIndex = (i + 1) % ROWS; //Calculate the index of the next row in the 2D array, wrapping around to the first row if the current row is the last row.
+            int nextRowIndex = (i + 1) % ROWS; //Calculate the index of the next row in the 2D array, wrapping around to the next row if the current row is the last row.
             for (int j = 0; j < COLS - 1; j++) {
                 matrix[i][j] = (int) Math.pow(matrix[i][j], matrix[i][j + 1]);
             }
