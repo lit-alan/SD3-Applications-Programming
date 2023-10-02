@@ -9,21 +9,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        initMatrix();
+        initMatrix(matrix);
 
-        printMatrix();
+        printMatrix(matrix);
 
-        raise2DArray();
+        raise2DArray(matrix);
 
-        System.out.println();
-
-        printMatrix();
-
-
+        printMatrix(matrix);
 
     }
 
-    public static void initMatrix() {
+    public static void initMatrix(int [][] matrix) {
         int random;
         boolean[] usedNumbers = new boolean[11];
 
@@ -32,7 +28,7 @@ public class Main {
 
                 do{
                     random = ThreadLocalRandom.current().nextInt(1, 10 + 1);
-                }while(isDuplicateOrSameParity(j, usedNumbers, random));
+                }while(isNotValid(j, usedNumbers, random));
 
                 matrix[i][j] = random;
                 usedNumbers[random] = true;
@@ -42,8 +38,7 @@ public class Main {
     }
 
     //Check whether a number is a duplicate or has the same parity as an index
-    //parity refers to whether a number is even or odd. Even numbers have a parity of 0, while odd numbers have a parity of 1.
-    public static boolean isDuplicateOrSameParity(int index, boolean[] usedNumbers, int random) {
+    public static boolean isNotValid(int index, boolean[] usedNumbers, int random) {
         return usedNumbers[random] || (isEven(index) != isEven(random));
         //the above line can be rewritten as follows:
         // if (duplicates[random] || (isEven(index) != isEven(random)))
@@ -58,16 +53,17 @@ public class Main {
     }
 
     //print the matrix
-    public static void printMatrix() {
+    public static void printMatrix(int [][] matrix) {
         for (int[] row : matrix) {
             for (int value : row) {
                 System.out.print(value + "\t");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
-    public static void raise2DArray() {
+    public static void raise2DArray(int [][] matrix) {
 
         int firstValue = matrix[0][0];
         int lastValue = matrix[ROWS-1][COLS-1];
@@ -85,5 +81,4 @@ public class Main {
         //raise the last element in the array to the pow of the first element
         matrix[ROWS-1][COLS-1] = (int) Math.pow(lastValue, firstValue);
     }
-
 }
