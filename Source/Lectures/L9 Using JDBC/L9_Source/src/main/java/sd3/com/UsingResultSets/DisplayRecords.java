@@ -33,36 +33,33 @@ public class DisplayRecords {
 
             //exexute our query, which will lead to the return of a resultset
             ResultSet resultSet = statement.executeQuery("SELECT * FROM authors");
-//
-//            ResultSetMetaData metaData = resultSet.getMetaData();
-//
-//            int numberOfColumns = metaData.getColumnCount();
-//
-//            for (int i = 1; i < numberOfColumns; i++) {
-//                results += metaData.getColumnName(i) + "\t";
-//            }
+
+            ResultSetMetaData metaData = resultSet.getMetaData();
+
+            int numberOfColumns = metaData.getColumnCount();
+
+            for (int i = 1; i < numberOfColumns; i++) {
+                results += metaData.getColumnName(i) + "\t";
+            }
 
 
             results += "\n";
 
-            List<Author> aList = new ArrayList<>();
 
             while (resultSet.next()) {
                     int id = resultSet.getInt(1);
                     String fName = resultSet.getString(2);
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
-                    Author a = new Author(id, fName, lName, year);
-                    aList.add(a);
-//
-//                for (int i = 1; i <= 4; i++) {
-//                    results += resultSet.getObject(i) + "\t\t";
-//                }//end for
-//
-//                results += "\n";
+
+
+                for (int i = 1; i <= 4; i++) {
+                    results += resultSet.getObject(i) + "\t\t";
+                }//end for
+
+                results += "\n";
             } //end while
 
-            aList.forEach(System.out::println);
         }//end try
         catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);
