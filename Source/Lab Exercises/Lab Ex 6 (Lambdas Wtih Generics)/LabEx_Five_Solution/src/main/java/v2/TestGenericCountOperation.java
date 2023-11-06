@@ -6,7 +6,8 @@ public class TestGenericCountOperation {
         String[] names = {"Alan", "Aoife", "Erin", "Dave", "Jackie", "James", "Mike"};
         Integer[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         
-        CountOperation countNamesStartingWithA = (Object o) -> { String s = (String)o; return s.startsWith("A");};
+        CountOperation countNamesStartingWithA = (Object o) ->
+                                            { String s = (String)o; return s.startsWith("A");};
 
         System.out.println("Names starting with \'A\' " + countIt(names, countNamesStartingWithA));
         
