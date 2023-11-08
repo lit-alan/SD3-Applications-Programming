@@ -25,7 +25,8 @@ public class InsertRecord {
             //We will use this object to carry our query to the database
             statement = connection.createStatement();
 
-            String insertSQL = "INSERT INTO authors(AuthorID, FirstName, LastName, YearBorn)VALUES ('4', 'Gerry', 'Guinane', '1933')";
+            String insertSQL = "INSERT INTO authors(AuthorID, FirstName, LastName, YearBorn)" +
+                    "VALUES ('4', 'Gerry', 'Guinane', '1933')";
             int rowCount = statement.executeUpdate(insertSQL);
 
             System.out.println(rowCount + " row inserted\n");

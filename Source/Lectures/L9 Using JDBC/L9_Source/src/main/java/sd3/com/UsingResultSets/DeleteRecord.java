@@ -24,7 +24,7 @@ public class DeleteRecord {
             //We will use this object to carry our query to the database
             statement = connection.createStatement();
 
-            String deletetSQL = "Delete from authors WHERE LastName = 'Watson'";
+            String deletetSQL = "Delete from authors WHERE LastName = 'Deitel'";
 
             int rowCount = statement.executeUpdate(deletetSQL);
 

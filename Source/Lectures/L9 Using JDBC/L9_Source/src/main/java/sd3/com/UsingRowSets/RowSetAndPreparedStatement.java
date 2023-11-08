@@ -1,5 +1,7 @@
 package sd3.com.UsingRowSets;
 
+import utilities.Books;
+
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.sql.rowset.JdbcRowSet;
@@ -10,7 +12,7 @@ import javax.sql.rowset.RowSetProvider;
 public class RowSetAndPreparedStatement {
 
     public static void main(String[] args) {
-
+        Books.resetTableInDB();
         JdbcRowSet rowSet = null;
         String results = "";
 
@@ -26,7 +28,7 @@ public class RowSetAndPreparedStatement {
             rowSet.setPassword("pass");
             rowSet.setCommand("SELECT * FROM authors where lastname = ? and YearBorn < ?");
             rowSet.setString(1, "Deitel");
-            rowSet.setInt(2, 1980);
+            rowSet.setInt(2, 1950);
             rowSet.execute();
 
             //get the meta data as before

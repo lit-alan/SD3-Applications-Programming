@@ -50,7 +50,7 @@ public class DisplayRecords {
 
             while (resultSet.next()) {
                     int id = resultSet.getInt(1);
-                    String fName = resultSet.getString(2);
+                    String fName = resultSet.getString("FirstName");
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
 
