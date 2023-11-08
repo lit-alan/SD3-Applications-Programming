@@ -22,6 +22,8 @@ public class DisplayRecords {
         try {
 
             Books.resetTableInDB();
+
+            List<Author> authors = new ArrayList<>();
             
             //create the connection object
             //ATTN: username and password must be changed depending on the settings on your database server
@@ -38,7 +40,7 @@ public class DisplayRecords {
 
             int numberOfColumns = metaData.getColumnCount();
 
-            for (int i = 1; i < numberOfColumns; i++) {
+            for (int i = 1; i <= numberOfColumns; i++) {
                 results += metaData.getColumnName(i) + "\t";
             }
 
@@ -52,14 +54,21 @@ public class DisplayRecords {
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
 
+                    Author anAuthor = new Author(id, fName, lName, year);
 
-                for (int i = 1; i <= 4; i++) {
-                    results += resultSet.getObject(i) + "\t\t";
-                }//end for
+                authors.add(anAuthor);
+
+//                for (int i = 1; i <= 4; i++) {
+//                    results += resultSet.getObject(i) + "\t\t";
+//                }//end for
 
                 results += "\n";
             } //end while
 
+        //    authors.forEach(System.out::println);
+            for (Author a: authors) {
+                System.out.println(a);
+            }
         }//end try
         catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);

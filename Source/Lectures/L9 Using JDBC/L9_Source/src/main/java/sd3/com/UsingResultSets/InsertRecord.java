@@ -37,14 +37,14 @@ public class InsertRecord {
 
             int numberOfColumns = metaData.getColumnCount();
 
-            for (int i = 1; i < numberOfColumns; i++) {
+            for (int i = 1; i <= numberOfColumns; i++) {
                 results += metaData.getColumnName(i) + "\t";
             }
 
             results += "\n";
 
             while (resultSet.next()) {
-                for (int i = 1; i < numberOfColumns; i++) {
+                for (int i = 1; i <= numberOfColumns; i++) {
                     results += resultSet.getObject(i) + "\t\t";
                 }//end for
 
