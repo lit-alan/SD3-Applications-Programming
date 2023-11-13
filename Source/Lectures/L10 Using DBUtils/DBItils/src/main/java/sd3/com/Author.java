@@ -2,7 +2,6 @@ package sd3.com;
 
 import lombok.*;
 
-
 @ToString
 @Getter
 @Setter
@@ -15,7 +14,4 @@ public class Author {
     private String LastName;
     private int YearBorn;
 
-
-  
 }//end class Author
-

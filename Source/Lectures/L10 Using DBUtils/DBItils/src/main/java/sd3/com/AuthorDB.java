@@ -127,7 +127,7 @@ public class AuthorDB {
         return runner.query(connection, "SELECT SUM(YearBorn) FROM authors", handler);
     }
     
-      public static Integer getMaxYearBorn() throws SQLException {
+    public static Integer getMaxYearBorn() throws SQLException {
 
         //for queries that return a single value, use a ScalarHandler
         //the SQL MAX function returns an Integer
@@ -136,7 +136,7 @@ public class AuthorDB {
         //execute the query
         return runner.query(connection, "SELECT MAX(YearBorn) FROM authors", handler);
     }
-      
+
     public static Integer getMinYearBorn() throws SQLException {
 
         //for queries that return a single value, use a ScalarHandler
@@ -146,5 +146,14 @@ public class AuthorDB {
         //execute the query
         return runner.query(connection, "SELECT MIN(YearBorn) FROM authors", handler);
     }
+
+
+    public static List<AuthorTitle> getAuthorsAndTitles() throws SQLException {
+
+        ResultSetHandler<List<AuthorTitle>> handler = new BeanListHandler(AuthorTitle.class);
+        return runner.query(connection, "SELECT * FROM titles INNER JOIN authors ON titles.PublisherID = authors.AuthorID", handler);
+
+    }
+
     
 }//end AuthorDB
