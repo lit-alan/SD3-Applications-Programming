@@ -1,0 +1,21 @@
+---
+- firstName: "J.K."
+  lastName: "Rowling"
+  authorID: 1
+  yearBorn: 1965
+- firstName: "Stephen"
+  lastName: "King"
+  authorID: 2
+  yearBorn: 1947
+- firstName: "George"
+  lastName: "Orwell"
+  authorID: 3
+  yearBorn: 1903
+- firstName: "Agatha"
+  lastName: "Christie"
+  authorID: 4
+  yearBorn: 1890
+- firstName: "Haruki"
+  lastName: "Murakami"
+  authorID: 5
+  yearBorn: 1949
