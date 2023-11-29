@@ -15,10 +15,10 @@ public class UsingCallablesAndFuturesEX2 {
 
         List<Callable<Integer>> tasks = Arrays.asList(
                 () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
-                () -> ThreadLocalRandom.current().nextInt(100, 1000 + 1),
-                () -> ThreadLocalRandom.current().nextInt(1000, 10000 + 1),
-                () -> ThreadLocalRandom.current().nextInt(10000, 100000 + 1),
-                () -> ThreadLocalRandom.current().nextInt(100000, 1000000 + 1));
+                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
+                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
+                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
+                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1));
 
         ExecutorService exe = Executors.newCachedThreadPool();
         List<Future<Integer>> futures = exe.invokeAll(tasks);

@@ -21,11 +21,11 @@ public class UsingAScheulerEX3 {
         };
 
        int initialDelay = 0;
-       int delay = 1;
-       executor.scheduleWithFixedDelay(task, initialDelay, delay, TimeUnit.SECONDS);
+       int period = 1;
+       executor.scheduleWithFixedDelay(task, initialDelay, period, TimeUnit.SECONDS);
 
        /*
-       For example, if you schedule a task with an initial delay of 5 seconds and a delay of 10 seconds, the task will first run after 5 seconds,
+       For example, if you schedule a task with an initial delay of 5 seconds and a period of 10 seconds, the task will first run after 5 seconds,
        and then it will run again 10 seconds after it has completed its execution, regardless of how long the execution took.
         */
 
@@ -37,7 +37,8 @@ public class UsingAScheulerEX3 {
          */
 
         /*
-        scheduleAtFixedRate is about maintaining a consistent frequency, while scheduleWithFixedDelay is about ensuring a fixed rest period between executions.
+        scheduleAtFixedRate is about maintaining a consistent frequency, while scheduleWithFixedDelay is about ensuring a fixed rest period between
+        xecutions.
         The choice between the two should be based on the specific requirements of the task you are scheduling.
          */
     }

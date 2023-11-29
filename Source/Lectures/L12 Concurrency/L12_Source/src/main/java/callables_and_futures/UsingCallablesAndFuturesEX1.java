@@ -13,17 +13,17 @@ public class UsingCallablesAndFuturesEX1 {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         
-        Callable<Integer> task = () -> {
-            //return random int in the range 1 - 100
-            TimeUnit.SECONDS.sleep(5);
-            return ThreadLocalRandom.current().nextInt(1,100+1);
-        };
+//        Callable<Integer> task = () -> {
+//            //return random int in the range 1 - 100
+//            TimeUnit.SECONDS.sleep(5);
+//            return ThreadLocalRandom.current().nextInt(1,100+1);
+//        };
 
         //A Cached Thread Pool creates a thread pool that creates new threads as needed,
         //but will reuse previously constructed threads when they are available.
         ExecutorService exe = Executors.newCachedThreadPool();
-        Future<Integer> future = exe.submit(task);
-        //Future<Integer> future = exe.submit(new task());
+//        Future<Integer> future = exe.submit(task);
+        Future<Integer> future = exe.submit(new RandomTask(300, 400));
         Integer result = future.get();
         System.out.println("result: " + result);
 

@@ -24,9 +24,11 @@ public class UsingAScheulerEX2 {
         executor.scheduleAtFixedRate(bye, initialDelay, period, TimeUnit.SECONDS);
 
         /*
-        If you schedule a task with an initial delay of 5 seconds and a period of 10 seconds, the task will first run after 5 seconds, and then every 10 seconds thereafter,
+        If you schedule a task with an initial delay of 5 seconds and a period of 10 seconds, the task will first run after 5 seconds, and then every 10
+        seconds thereafter,
          regardless of how long the task takes to complete.
-        If a task's execution takes longer than the period, the next execution will start immediately after the current execution finishes (tasks will not overlap).
+        If a task's execution takes longer than the period, the next execution will start immediately after the current execution finishes
+        (tasks will not overlap).
 
          */
         

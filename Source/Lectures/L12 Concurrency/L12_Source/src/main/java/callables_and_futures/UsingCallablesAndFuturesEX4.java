@@ -22,7 +22,7 @@ public class UsingCallablesAndFuturesEX4 {
                 callable("Thursday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
                 callable("Friday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
                 callable("Saturday", ThreadLocalRandom.current().nextInt(1, 5 + 1)),
-                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 5+1)));
+                callable("Sunday", ThreadLocalRandom.current().nextInt(1, 5 +1)));
 
         String future = executor.invokeAny(callables);
 
