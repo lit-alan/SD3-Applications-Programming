@@ -1,4 +1,4 @@
-# SD3-Applications-Programming :smiley: TUS
+# SD3-Applications-Programming :smiley: 
 
 This module is designed to equip learners with features required to build comprehensive and highly responsive Java applications.
 
