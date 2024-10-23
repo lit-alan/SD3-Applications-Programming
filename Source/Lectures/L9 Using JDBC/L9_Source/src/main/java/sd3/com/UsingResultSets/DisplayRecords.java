@@ -15,7 +15,6 @@ public class DisplayRecords {
 
     public static void main(String[] args) {
 
-        String results = "";
         Connection connection = null;
         Statement statement = null;
 
@@ -23,8 +22,7 @@ public class DisplayRecords {
 
             Books.resetTableInDB();
 
-            List<Author> authors = new ArrayList<>();
-            
+
             //create the connection object
             //ATTN: username and password must be changed depending on the settings on your database server
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "root", "");
@@ -39,13 +37,14 @@ public class DisplayRecords {
             ResultSetMetaData metaData = resultSet.getMetaData();
 
             int numberOfColumns = metaData.getColumnCount();
+            String colHeadings = "";
 
             for (int i = 1; i <= numberOfColumns; i++) {
-                results += metaData.getColumnName(i) + "\t";
+                colHeadings += metaData.getColumnName(i) + "\t";
             }
 
 
-            results += "\n";
+            System.out.println(colHeadings);
 
 
             while (resultSet.next()) {
@@ -53,22 +52,8 @@ public class DisplayRecords {
                     String fName = resultSet.getString("FirstName");
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
-
-                    Author anAuthor = new Author(id, fName, lName, year);
-
-                authors.add(anAuthor);
-
-//                for (int i = 1; i <= 4; i++) {
-//                    results += resultSet.getObject(i) + "\t\t";
-//                }//end for
-
-                results += "\n";
+                    System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
             } //end while
-
-        //    authors.forEach(System.out::println);
-            for (Author a: authors) {
-                System.out.println(a);
-            }
         }//end try
         catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);
@@ -82,7 +67,7 @@ public class DisplayRecords {
             }
 
         }//end finally 
-        System.out.println(results);
+
 
     }//end main
 }//end class

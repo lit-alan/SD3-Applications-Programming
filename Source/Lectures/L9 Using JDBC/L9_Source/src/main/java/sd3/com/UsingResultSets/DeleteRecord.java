@@ -24,7 +24,7 @@ public class DeleteRecord {
             //We will use this object to carry our query to the database
             statement = connection.createStatement();
 
-            String deletetSQL = "Delete from authors WHERE LastName = 'Deitel'";
+            String deletetSQL = "Delete from authors WHERE LastName = 'Watson'";
 
             int rowCount = statement.executeUpdate(deletetSQL);
 
@@ -35,23 +35,25 @@ public class DeleteRecord {
 
             ResultSetMetaData metaData = resultSet.getMetaData();
 
+            String colHeadings = "";
             int numberOfColumns = metaData.getColumnCount();
 
-            for (int i = 1; i < numberOfColumns; i++) {
-                results += metaData.getColumnName(i) + "\t";
+            for (int i = 1; i <= numberOfColumns; i++) {
+                colHeadings += metaData.getColumnName(i) + "\t";
             }
 
-            results += "\n";
+            System.out.println(colHeadings);
 
             while (resultSet.next()) {
-                for (int i = 1; i < numberOfColumns; i++) {
-                    results += resultSet.getObject(i) + "\t\t";
-                }//end for
+                int id = resultSet.getInt(1);
+                String fName = resultSet.getString("FirstName");
+                String lName = resultSet.getString(3);
+                int year = resultSet.getInt(4);
+                System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
+            }//end try
 
-                results += "\n";
-            }//end while
-
-        } catch (SQLException sqlex) {
+        }//end try
+        catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);
         }//end catch
         finally {
@@ -62,10 +64,6 @@ public class DeleteRecord {
                 System.out.println("Error cleaning up " + sqlex);
             }
 
-        }//end finally 
-
-        System.out.println(results);
-
+        }//end finally
     }//end main
-
-}
+}//end class
