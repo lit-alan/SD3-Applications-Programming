@@ -12,7 +12,6 @@ public class CompleteRowSetExample {
 
     public static void main(String[] args) {
         JdbcRowSet rowSet = null;
-
         try {
              Books.resetTableInDB();
 
@@ -79,20 +78,15 @@ public class CompleteRowSetExample {
     }//end main
 
     private static void displayRowSet(JdbcRowSet rowSet, String message) throws SQLException {
-       
-        results = message + "\n";
-        
+        System.out.println(message);
+
         while (rowSet.next()) {
             for (int i = 1; i <= 4; i++) {
-                results += rowSet.getString(i) + "\t\t";
-                
+                System.out.print(rowSet.getString(i) + "\t\t");
             }//end for
-            results += "\n";
+            System.out.println();
 
         }//end while
-
-        System.out.println(results);
-
     }
 
 }

@@ -29,8 +29,11 @@ public class UpdateRecord {
             int year = 1967;
             String criteria = "Guinane";
 
-            String updatetSQL = "UPDATE authors SET FirstName = 'Brendan', LastName = 'Watson', YearBorn = '1967'  WHERE LastName = 'Guinane'";
-//            String updatetSQL = "UPDATE authors SET FirstName = '" + fNAme + "', LastName = '" + lName + "', YearBorn = '" + year + "'  WHERE LastName = '" + criteria + "'";
+           // String updatetSQL = "UPDATE authors SET FirstName = 'Brendan', LastName = 'Watson', YearBorn = '1967'  WHERE LastName = 'Guinane'";
+           String updatetSQL = "UPDATE authors SET FirstName = '" + fNAme + "', LastName = '" + lName + "', " +
+                   "YearBorn = '" + year + "'  WHERE LastName = '" + criteria + "'";
+
+            System.out.println(updatetSQL);
 
 
             int rowCount = statement.executeUpdate(updatetSQL);

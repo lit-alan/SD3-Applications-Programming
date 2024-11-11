@@ -27,7 +27,8 @@ public class RowSetAndPreparedStatement {
             rowSet.setUsername("sduser");
             rowSet.setPassword("pass");
             rowSet.setCommand("SELECT * FROM authors where lastname = ? and YearBorn < ?");
-            rowSet.setString(1, "Deitel");
+            String name = "Deitel";
+            rowSet.setString(1, name);
             rowSet.setInt(2, 1950);
             rowSet.execute();
 

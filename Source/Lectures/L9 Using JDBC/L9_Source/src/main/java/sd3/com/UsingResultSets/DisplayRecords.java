@@ -18,6 +18,9 @@ public class DisplayRecords {
         Connection connection = null;
         Statement statement = null;
 
+        ArrayList<Author> authorList = new ArrayList();
+
+
         try {
 
             Books.resetTableInDB();
@@ -43,7 +46,6 @@ public class DisplayRecords {
                 colHeadings += metaData.getColumnName(i) + "\t";
             }
 
-
             System.out.println(colHeadings);
 
 
@@ -52,8 +54,17 @@ public class DisplayRecords {
                     String fName = resultSet.getString("FirstName");
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
-                    System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
+
+                    Author a = new Author(id, fName, lName, year);
+
+                    authorList.add(a);
+
+                  //  System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
             } //end while
+
+            authorList.forEach(System.out::println);
+
+
         }//end try
         catch (SQLException sqlex) {
             System.out.println("Comms error " + sqlex);
