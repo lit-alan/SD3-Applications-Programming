@@ -26,18 +26,21 @@ public class Main {
 //        exe.submit(new OddTask(numbers));
       Future<Integer> future =   exe.submit(new EvenTask(numbers));
         System.out.println("Sum of all even number is " + future.get());
+     //   exe.submit(new EvenTask(numbers));
+        exe.submit(new OddTask(numbers));
 
 
-
-//        Predicate<Integer> sumEvenPredicate = n -> n  % 2 == 0;
-//        SumTask st = new SumTask(numbers,sumEvenPredicate);
-//        exe.submit(st);
+        Predicate<Integer> sumEvenPredicate = n -> n  % 2 == 0;
+        SumTask st = new SumTask(numbers,sumEvenPredicate);
+        exe.submit(st);
 //
 //
-//        Predicate<Integer> sumOddPredicate = n -> n  % 2 != 0;
-//        exe.submit(new SumTask(numbers, sumOddPredicate));
+        Predicate<Integer> sumOddPredicate = n -> n  % 2 != 0;
+        exe.submit(new SumTask(numbers, sumOddPredicate));
 
 
+        PrintMaximalSeqTask task3 = new PrintMaximalSeqTask(numbers);
+        exe.submit(task3);
 //        Future<Integer> future = exe.submit(new PalindromeTask(10000, 50));
 //        try {
 //            System.out.println("The count of numbers below 10,000 that do not become " +

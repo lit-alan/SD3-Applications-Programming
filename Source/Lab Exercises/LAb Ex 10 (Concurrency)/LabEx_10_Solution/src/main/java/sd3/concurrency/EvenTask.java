@@ -6,6 +6,7 @@ import java.util.concurrent.Callable;
 public class EvenTask implements Callable<Integer> {
 
     int numbers[];
+
     public EvenTask(int numbers[]) {
         this.numbers = numbers;
     }
@@ -16,6 +17,7 @@ public class EvenTask implements Callable<Integer> {
                 .filter(n -> n % 2 == 0)
                 .sum();
     }
+
 
 //    @Override
 //    public void run() {
