@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class InsertRecord {
 
     public static void main(String[] args) {
 
-        String results = "";
+        ArrayList<Author> authorList = new ArrayList();
         Connection connection = null;
         Statement statement = null;
 
@@ -36,21 +37,22 @@ public class InsertRecord {
 
             ResultSetMetaData metaData = resultSet.getMetaData();
 
-            String colHeadings = "";
-            int numberOfColumns = metaData.getColumnCount();
-
-            for (int i = 1; i <= numberOfColumns; i++) {
-                colHeadings += metaData.getColumnName(i) + "\t";
-            }
-
-            System.out.println(colHeadings);
+            System.out.printf("%-10s %-15s %-15s %-10s%n",
+                    metaData.getColumnName(1),
+                    metaData.getColumnName(2),
+                    metaData.getColumnName(3),
+                    metaData.getColumnName(4));
 
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String fName = resultSet.getString("FirstName");
                 String lName = resultSet.getString(3);
                 int year = resultSet.getInt(4);
-                System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
+
+                Author a = new Author(id, fName, lName, year);
+                authorList.add(a);
+
+                System.out.printf("%-10d %-15s %-15s %-10d%n", id, a.getFirstName(), a.getLastName(), a.YearBorn);
 
             }//end try
 

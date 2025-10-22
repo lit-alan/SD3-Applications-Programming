@@ -39,14 +39,14 @@ public class DisplayRecords {
 
             ResultSetMetaData metaData = resultSet.getMetaData();
 
-            int numberOfColumns = metaData.getColumnCount();
-            String colHeadings = "";
+            //int numberOfColumns = metaData.getColumnCount();
 
-            for (int i = 1; i <= numberOfColumns; i++) {
-                colHeadings += metaData.getColumnName(i) + "\t";
-            }
 
-            System.out.println(colHeadings);
+            System.out.printf("%-10s %-15s %-15s %-10s%n",
+                    metaData.getColumnName(1),
+                    metaData.getColumnName(2),
+                    metaData.getColumnName(3),
+                    metaData.getColumnName(4));
 
 
             while (resultSet.next()) {
@@ -56,13 +56,13 @@ public class DisplayRecords {
                     int year = resultSet.getInt(4);
 
                     Author a = new Author(id, fName, lName, year);
-
                     authorList.add(a);
 
-                  //  System.out.println(id + "\t\t\t" + fName + "\t\t" + lName + "\t\t" + year);
+                    System.out.printf("%-10d %-15s %-15s %-10d%n", id, a.getFirstName(), a.getLastName(), a.YearBorn);
+
             } //end while
 
-            authorList.forEach(System.out::println);
+           // authorList.forEach(System.out::println);
 
 
         }//end try
