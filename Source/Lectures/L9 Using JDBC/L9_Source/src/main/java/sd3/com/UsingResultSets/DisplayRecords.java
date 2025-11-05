@@ -41,7 +41,6 @@ public class DisplayRecords {
 
             //int numberOfColumns = metaData.getColumnCount();
 
-
             System.out.printf("%-10s %-15s %-15s %-10s%n",
                     metaData.getColumnName(1),
                     metaData.getColumnName(2),
@@ -77,7 +76,7 @@ public class DisplayRecords {
                 System.out.println("Error cleaning up " + sqlex);
             }
 
-        }//end finally 
+        }//end finally
 
 
     }//end main
