@@ -7,9 +7,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Alan.Ryan
+ * Utility class for managing the sample {@code books} database.
+ * <p>
+ * Provides a method to reset the {@code authors} table by deleting all
+ * existing records and inserting predefined sample data. Intended for
+ * demonstration or testing purposes.
+ * <p>
+ * Note: Update the database URL, username, and password as needed for your local environment.
  */
+
 public class Books {
 
     public static void resetTableInDB() {

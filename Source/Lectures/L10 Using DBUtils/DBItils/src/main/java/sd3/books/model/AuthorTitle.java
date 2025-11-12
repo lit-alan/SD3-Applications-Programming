@@ -1,6 +1,20 @@
-package sd3.com;
+package sd3.books.model;
 
 import lombok.*;
+
+
+/**
+ * Data Transfer Object (DTO) representing a combined view of data
+ * from the {@code titles} and {@code authors} tables.
+ * <p>
+ * Each instance corresponds to one row from a join query between
+ * {@code titles}, {@code authorisbn}, and {@code authors}, containing
+ * both book and author information.
+ * <p>
+ * This class is used for transferring joined data from the database
+ * and does not represent a persistent entity.
+ */
+
 
 @ToString
 @Getter

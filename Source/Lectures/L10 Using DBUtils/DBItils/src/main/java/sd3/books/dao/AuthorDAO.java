@@ -1,4 +1,4 @@
-package sd3.com;
+package sd3.books.dao;
 
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
@@ -12,8 +12,10 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import sd3.books.model.Author;
+import sd3.books.model.AuthorTitle;
 
-public class AuthorDB {
+public class AuthorDAO {
     
     static Connection connection;
     static QueryRunner runner;
@@ -148,12 +150,44 @@ public class AuthorDB {
     }
 
 
+    /**
+     * Retrieves a combined list of book and author data from the database.
+     * <p>
+     * Executes a join query across the {@code titles}, {@code authorisbn}, and
+     * {@code authors} tables, mapping each resulting row to an
+     * {@link AuthorTitle} object that contains both book and author details.
+     * <p>
+     * This method uses Apache Commons DBUtils to execute the query and map the
+     * results automatically.
+     *
+     * @return a list of {@link AuthorTitle} objects, each representing one
+     *         book–author combination
+     * @throws SQLException if a database access error occurs
+     */
+
     public static List<AuthorTitle> getAuthorsAndTitles() throws SQLException {
 
         ResultSetHandler<List<AuthorTitle>> handler = new BeanListHandler(AuthorTitle.class);
-        return runner.query(connection, "SELECT * FROM titles INNER JOIN authors ON titles.PublisherID = authors.AuthorID", handler);
+
+        String query = """
+                        SELECT
+                            t.ISBN,
+                            t.Title,
+                            t.EditionNumber,
+                            t.YearPublished,
+                            t.PublisherID,
+                            t.Price,
+                            a.AuthorID,
+                            a.FirstName,
+                            a.LastName,
+                            a.YearBorn
+                    FROM titles t
+                    INNER JOIN authorisbn ai ON t.ISBN = ai.ISBN
+                    INNER JOIN authors a ON ai.AuthorID = a.AuthorID;
+                    """;
+        return runner.query(connection, query, handler);
 
     }
 
     
-}//end AuthorDB
+}//end AuthorDAO

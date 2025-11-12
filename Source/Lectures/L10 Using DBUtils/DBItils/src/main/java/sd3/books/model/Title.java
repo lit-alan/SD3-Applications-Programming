@@ -1,4 +1,4 @@
-package sd3.com;
+package sd3.books.model;
 
 import lombok.*;
 
