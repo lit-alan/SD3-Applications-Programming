@@ -1,11 +1,15 @@
 package sd3.books.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Properties;
+
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -21,15 +25,34 @@ public class AuthorDAO {
     static QueryRunner runner;
         
     ///////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Loads connection settings from {@code db.properties} located in the
+     * classpath (resources folder) and provides a single method to obtain
+     * a JDBC {@link java.sql.Connection}.
+     */
+
     public static void doConnection() {
-        try {
-            //connect to DB
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "root", "");
-            //create runner
+        Properties props = new Properties();
+
+        try (InputStream input = AuthorDAO.class.getResourceAsStream("/db.properties")) {
+            //Load configuration file
+            if (input == null) {
+                System.out.println("Sorry, unable to find db.properties");
+                return;
+            }
+            props.load(input);
+
+            // Read values
+            String url = props.getProperty("db.url");
+            String username = props.getProperty("db.username");
+            String password = props.getProperty("db.password");
+
+            // Connect using properties
+            connection = DriverManager.getConnection(url, username, password);
             runner = new QueryRunner();
 
-        } catch (SQLException ex) {
-            System.out.println(ex);
+        } catch (IOException | SQLException ex) {
+            System.out.println("Error connecting to database: " + ex.getMessage());
         }
 
     }//end doConnection
