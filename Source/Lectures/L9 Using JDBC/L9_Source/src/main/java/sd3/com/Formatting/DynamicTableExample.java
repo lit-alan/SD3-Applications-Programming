@@ -26,7 +26,7 @@ public class DynamicTableExample {
             String q3 = "SELECT Title, Price from titles";
 
             //substitute q1, q2 or q3 into the executeQuery method below to see the app dynamiclly print a table for the resultset
-            ResultSet rs = stmt.executeQuery(q1);
+            ResultSet rs = stmt.executeQuery(q3);
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
