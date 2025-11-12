@@ -25,12 +25,13 @@ public class DynamicTableExample {
             String q2 = "SELECT Title, EditionNumber, YearPublished, Price from titles";
             String q3 = "SELECT Title, Price from titles";
 
-            ResultSet rs = stmt.executeQuery(q2);
+            //substitute q1, q2 or q3 into the executeQuery method below to see the app dynamiclly print a table for the resultset
+            ResultSet rs = stmt.executeQuery(q1);
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-            // Determine column widths based on the data in teh ResultSet
+            //Determine column widths based on the data in teh ResultSet
             int[] columnWidths = new int[columnCount];
 
             //titleColumnIndex will ne set to -1 if the title col isnt found in the ResultSet
@@ -44,7 +45,7 @@ public class DynamicTableExample {
                 }
             }
 
-            // Check for the width of each row and update columnWidths if necessary
+            //Check for the width of each row and update columnWidths if necessary
             while (rs.next()) {
                 for (int i = 1; i <= columnCount; i++) {
                     String value = rs.getString(i);
@@ -61,10 +62,10 @@ public class DynamicTableExample {
                 throw new SQLException("Title column not found in the result set");
             }
 
-            // Reset cursor for printing
+            //Reset cursor for printing
             rs.beforeFirst();
 
-            // Printing the table
+            //Printing the table
             printTableHeader(rsmd, columnWidths);
             printTableSeparator(columnWidths);
 
