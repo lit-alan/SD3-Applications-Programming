@@ -20,6 +20,7 @@ public class ParsingTextFileUsingStringTokenizer {
         List<String> lines = null;
         try {
             lines = Files.readAllLines(p);
+
         } catch (IOException ex) {
             System.err.println(ex);
         }
@@ -30,10 +31,11 @@ public class ParsingTextFileUsingStringTokenizer {
         }
 
         for (String line : lines) {
-            studentList.add(splitRecord(line)); //convert each record in the file to a io.model.Student object
+//            System.out.println(line);
+           studentList.add(splitRecord(line)); //convert each record in the file to a io.model.Student object
         }
 
-        studentList.forEach(System.out::println);
+       studentList.forEach(System.out::println);
 
     }
 

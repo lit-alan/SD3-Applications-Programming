@@ -12,10 +12,10 @@ public class Person implements Serializable {
 
     public String name;
     private int yearOfBirth;
-    private  String address;
+    private transient String address;
     private int phone;
     private String PPS;
-    private   String occupation;
+    private transient String occupation;
     
 
     public Person() {
