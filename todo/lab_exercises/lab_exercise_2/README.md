@@ -51,6 +51,19 @@ For example, if the specified value (x) is 12 the output would be as follows:
 
 If no adjacent pairs can be found you should print a suitable message to the console.
 
+Treat the array as continuous, so the last value in one row is adjacent to the first value in the next row.
+
+For example, if the end of one row is:
+
+`... 40 83`
+
+and the next row begins:
+
+`98 100 ...`
+
+then **83 and 98 are considered adjacent** and should be checked as a pair.
+
+
 
 <br>
 
