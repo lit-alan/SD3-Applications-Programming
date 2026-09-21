@@ -70,7 +70,7 @@ _Printing a 2D array in spiral form means printing the elements around the outsi
 
 
 > [!IMPORTANT]
-> This exercise is a previous Assignment One and is intended to give you a good indication of the style, format and standard of the class test you can expect on October 5th.
+> This exercise is a previous Assignment One and is intended to give you a good indication of the style, format and standard of the class test you can expect on October 5th. During your attempt at this exercise, you are advised to restrict your Internet access to the following two websites:
 > 
 > [W3schools](https://www.w3schools.com) <br>
 > [Geeks for Geeks](https://www.geeksforgeeks.org) 
