@@ -63,7 +63,8 @@ signature of the method yourself. The original array printed in spiral form woul
 
 _Printing a 2D array in spiral form means printing the elements around the outside first, then moving inward in a clockwise spiral._
 
-<img width="457" height="426" alt="image" src="https://github.com/user-attachments/assets/54f79a4c-84df-4339-b1a8-7f38ec295d65" />
+<img width="574" height="574" alt="image" src="https://github.com/user-attachments/assets/2c525e08-f34a-477e-84bc-7273c24a656a" />
+
 
 <br><br>
 
@@ -77,4 +78,5 @@ _Printing a 2D array in spiral form means printing the elements around the outsi
 > You may also refer to my notes on [Moodle](https://moodle.midwest.tus.ie/course/view.php?id=22041) along with the source code for this module on [GitHub](https://github.com/lit-alan/SD3-Applications-Programming)
 >
 > There is little benefit in using Gen AI or other external sources when attempting this exercise, as the **solution will be provided afterwards**. To get an accurate indication of where you stand ahead of Assignment One, you should attempt this exercise under **exam conditions**, without external assistance.
+
 
