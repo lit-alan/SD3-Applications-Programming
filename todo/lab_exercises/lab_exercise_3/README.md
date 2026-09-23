@@ -21,7 +21,24 @@ Add the following three (private) instance variables to this class:
 
 • years (an int).
 
+```java
+public class Investment {
+
+private double monthlyInvestment;
+private double yearlyInterestRate;
+private int years;
+
+//generate all-args and no-args constructors
+
+//generate getters and setters
+
+//generate toString() => optional
+
+}
+```
+
 <br>
+
 You must add appropriate getters/setters for these three instance variables to the `Investment` class.
 
 You must also add **two constructors** to this class:
@@ -33,6 +50,19 @@ variables their default variables.
 • The second constructor will accept values for a monthly investment, a yearly interest rate
 and a number of years (this is the all-args constructor). You must use these values to initialise the instance variables for a
 given investment object.
+
+> [!NOTE]
+> IntelliJ can generate boilerplate code such as constructors/getters/setters
+>
+> Alt + Insert → (generate) Constructor (the shortcut to generate constructors)
+> 
+> Alt + Insert → Getter and Setter (the shortcut to generate getters/setters)
+>
+> You can also use the Refactor menu.
+>
+> Refactor → Generate → Constructor → select the fields → OK
+>
+> Refactor → Generate → Getter and Setter → select the fields → OK
 
 You must finally add the following utility method to the `Investment` class.
 
