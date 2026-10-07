@@ -79,11 +79,10 @@ Price difference: €190.00
 
 ## Task 6 – Total Stock Value
 
-Create a ProductListOperation lambda that calculates the total stock value for all  
-products by multiplying each product’s price by its stock quantity.
+Create a ProductListOperation lambda that calculates the total stock value for all products by multiplying each product’s price by its stock quantity.
 
 ```text
-Total stock value: €240,3350.0
+Total stock value: €44,940.00
 ```
 
 ## Task 7 – Price Adjustment Using a Lambda
@@ -111,8 +110,7 @@ You must write two overloaded `filterProducts` methods. They form the foundation
 public static List<Product> filterProducts(List<Product> products, ProductFilter filter)
 ```
 
-This version applies a single filtering condition to a list of products. It iterates through the list, tests each product against the provided `ProductFilter`, and collects those that  
-return true.
+This version applies a single filtering condition to a list of products. It iterates through the list, tests each product against the provided `ProductFilter`, and collects those that return true.
 
 
 ## Method 2 — Multiple Filters with AND/OR Logic
@@ -129,8 +127,7 @@ This version supports combining multiple filters (lambdas) using either AND logi
 If `useAndLogic` is `true`, a product must satisfy all filters to be included.  
 If `useAndLogic` is `false`, a product is included if it satisfies any filter.
 
-In other words, `useAndLogic` is a control flag that tells the `filterProducts` method how to combine multiple filters. When `useAndLogic == true` we’re saying “keep a product only  
-if it meets every condition.” When `useAndLogic == false` we’re saying: “keep a product if it meets any one of the conditions.”
+In other words, `useAndLogic` is a control flag that tells the `filterProducts` method how to combine multiple filters. When `useAndLogic == true` we’re saying “keep a product only if it meets every condition.” When `useAndLogic == false` we’re saying: “keep a product if it meets any one of the conditions.”
 
 *By “keep a product”, I’m referring to the decision the filtering method makes about whether a product should be included in the final filtered list that gets returned.*
 
