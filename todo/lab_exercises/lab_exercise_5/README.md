@@ -101,7 +101,7 @@ From here onward, the focus shifts to filtering lists of products using predicat
 
 ## The filterProducts Methods
 
-You must write two overloaded `filterProducts` methods. They form the foundation ofvTasks 8–11 and must be clearly understood before implementing the filters.
+You must write two overloaded `filterProducts` methods. They form the foundation of Tasks 8–11 and must be clearly understood before implementing the filters.
 
 ## Method 1 — Single Filter
 
@@ -140,10 +140,11 @@ Define a `ProductFilter` lambda that returns true if a product is on sale, has a
 Product[id=P1007, name=Leather Jacket, category=Fashion, price=150.0, costPrice=70.0, stock=12, rating=4.6, onSale=true, supplier=CoolWear]
 ```
 
+  
+
 ## Task 9 – Filtering: Low Stock or TechWorld Supplier
 
-Define another `ProductFilter` lambda that identifies products that either belong to the Electronics category with stock below 10 or are supplied by TechWorld. Two products  
-match this criteria.
+Define another `ProductFilter` lambda that identifies products that either belong to the Electronics category with stock below 10 or are supplied by TechWorld. Two products match this criteria.
 
 ```text
 === Electronics with Low Stock OR from TechWorld ===
@@ -151,15 +152,19 @@ Product[id=P1001, name=Laptop, category=Electronics, price=1200.0, costPrice=900
 Product[id=P1008, name=Gaming Mouse, category=Electronics, price=75.0, costPrice=40.0, stock=40, rating=4.4, onSale=false, supplier=TechWorld]
 ```
 
+
+  
 ## Task 10 – Combined Filter Using AND Logic
 
-Select all products that are simultaneously Expensive (price > €500), On Sale, and Highly Rated (rating ≥ 4.5). Develop three `ProductFilter` lambdas and combine them with  
-`useAndLogic = true`. One product match this criteria.
+Select all products that are simultaneously Expensive (price > €500), On Sale, and Highly Rated (rating ≥ 4.5). Develop three `ProductFilter` lambdas and combine them with `useAndLogic = true`. One product match this criteria.
 
 ```text
 === Products that are Expensive AND On Sale AND Highly Rated ===
 Product[id=P1002, name=Smartphone, category=Electronics, price=850.0, costPrice=600.0, stock=15, rating=4.7, onSale=true, supplier=SmartCo]
 ```
+
+
+  
 
 ## Task 11 – Combined Filter Using OR Logic
 
