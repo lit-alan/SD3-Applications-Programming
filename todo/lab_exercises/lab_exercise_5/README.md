@@ -90,8 +90,7 @@ Total stock value: €44,940.00
 Write a lambda expression for the `PriceAdjuster` interface that increases a product’s (use prod1) price by a given percentage and returns a new `Product` instance reflecting this change. Notice the increase in the price below.
 
 ```text
-Product[id=P1001, name=Laptop, category=Electronics, price=1320.0, costPrice=900.0,
-stock=8, rating=4.5, onSale=false, supplier=TechWorld]
+Product[id=P1001, name=Laptop, category=Electronics, price=1320.0, costPrice=900.0, stock=8, rating=4.5, onSale=false, supplier=TechWorld]
 ```
 
 -----------
