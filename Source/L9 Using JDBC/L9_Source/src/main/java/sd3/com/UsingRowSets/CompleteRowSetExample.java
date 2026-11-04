@@ -23,8 +23,8 @@ public class CompleteRowSetExample {
 
                 //configure the database connection
                 rowSet.setUrl("jdbc:mysql://localhost:3306/books");
-                rowSet.setUsername("sduser");
-                rowSet.setPassword("pass");
+                rowSet.setUsername("root");
+                rowSet.setPassword("");
 
                 //specify and execute the SQL query
                 rowSet.setCommand("SELECT * FROM authors");
