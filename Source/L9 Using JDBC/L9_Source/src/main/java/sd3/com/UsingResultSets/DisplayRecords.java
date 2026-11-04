@@ -54,6 +54,7 @@ public class DisplayRecords {
                     String lName = resultSet.getString(3);
                     int year = resultSet.getInt(4);
 
+
                     Author a = new Author(id, fName, lName, year);
                     authorList.add(a);
 
@@ -61,7 +62,7 @@ public class DisplayRecords {
 
             } //end while
 
-           // authorList.forEach(System.out::println);
+//            authorList.forEach(System.out::println);
 
 
         }//end try
