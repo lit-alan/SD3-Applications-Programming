@@ -1,3 +1,4 @@
+
 package sd3.com.UsingRowSets;
 
 import java.sql.SQLException;
@@ -8,85 +9,96 @@ import utilities.Books;
 
 public class CompleteRowSetExample {
 
-    static String results = "";
-
     public static void main(String[] args) {
-        JdbcRowSet rowSet = null;
+
         try {
-             Books.resetTableInDB();
+            //reset the authors table before starting
+            Books.resetTableInDB();
 
-            //use a factory object to get our hands on a RowSet
+            //create a JdbcRowSet using a RowSetFactory
             RowSetFactory factory = RowSetProvider.newFactory();
-            rowSet = factory.createJdbcRowSet();
 
-            //set values for the RowSet (inc the query)
-            rowSet.setUrl("jdbc:mysql://localhost:3306/books");
-            rowSet.setUsername("sduser");
-            rowSet.setPassword("pass");
+            //create a JdbcRowSet (automatically closed when finished)
+            try (JdbcRowSet rowSet = factory.createJdbcRowSet()) {
 
-            rowSet.setCommand("SELECT * FROM authors");
-            rowSet.execute();
+                //configure the database connection
+                rowSet.setUrl("jdbc:mysql://localhost:3306/books");
+                rowSet.setUsername("sduser");
+                rowSet.setPassword("pass");
 
-       
-            displayRowSet(rowSet, "Before update: Display All Records");
+                //specify and execute the SQL query
+                rowSet.setCommand("SELECT * FROM authors");
+                rowSet.execute();
 
-            //////////////////////////////////////////////////////////////////
-            //position cursor on second row and delete it
-            rowSet.absolute(2);
-            rowSet.deleteRow();
-            rowSet.beforeFirst();
-            displayRowSet(rowSet, "After delete: Display All Records");
+                //display all authors before making changes
+                displayRowSet(rowSet, "Before update");
 
-            //////////////////////////////////////////////////////////////////
-            //position the cursor to the first row and update the FirstName of the author to Rex
-            rowSet.absolute(1);
-            rowSet.updateString("FirstName", "Rex");
-            rowSet.updateString("LastName", "Watson");
-            rowSet.updateInt("YearBorn", 1999);
-            rowSet.updateRow();
-            rowSet.beforeFirst();
+                //delete the second author
+                rowSet.absolute(2);
+                rowSet.deleteRow();
+                rowSet.beforeFirst();
 
-            displayRowSet(rowSet, "After update: Display All Records");
+                displayRowSet(rowSet, "After deleting second author");
 
-            //////////////////////////////////////////////////////////////////
-            //move the cursor to the end of the rowset and insert a new row
-            rowSet.moveToInsertRow();
-            rowSet.updateInt("AuthorID", 14);
-            rowSet.updateString("FirstName", "Bertie");
-            rowSet.updateString("LastName", "Ahern");
-            rowSet.updateInt("YearBorn", 1964);
-            rowSet.insertRow();
-            rowSet.beforeFirst();
+                //update the first author's details
+                rowSet.absolute(1);
+                rowSet.updateString("FirstName", "Rex");
+                rowSet.updateString("LastName", "Watson");
+                rowSet.updateInt("YearBorn", 1999);
+                rowSet.updateRow();
+                rowSet.beforeFirst();
 
-            displayRowSet(rowSet, "After insertion: Display All Records");
+                displayRowSet(rowSet, "After updating first author");
 
-            //////////////////////////////////////////////////////////////////
-        
-        } catch (SQLException sqlex) {
-            System.out.println("Comms error " + sqlex);
-        }//end catch
-        
-        finally {
-            try {
-                rowSet.close();
-            } catch (SQLException sqlex) {
-                System.out.println("Error cleaning up " + sqlex);
+                //move to the special insert row and create a new author
+                rowSet.moveToInsertRow();
+
+                rowSet.updateInt("AuthorID", 14);
+                rowSet.updateString("FirstName", "Bertie");
+                rowSet.updateString("LastName", "Ahern");
+                rowSet.updateInt("YearBorn", 1964);
+
+                rowSet.insertRow();
+
+                //return to the original cursor position
+                rowSet.moveToCurrentRow();
+                rowSet.beforeFirst();
+
+                displayRowSet(rowSet, "After inserting new author");
             }
 
-        }//end finally 
+            //RowSet is automatically closed due to try-with-resources statement
 
-    }//end main
-
-    private static void displayRowSet(JdbcRowSet rowSet, String message) throws SQLException {
-        System.out.println(message);
-
-        while (rowSet.next()) {
-            for (int i = 1; i <= 4; i++) {
-                System.out.print(rowSet.getString(i) + "\t\t");
-            }//end for
-            System.out.println();
-
-        }//end while
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+        }
     }
 
+    /**
+     * Displays all records currently contained in the JdbcRowSet.
+     * Iterates through the records using the next() method and
+     * prints the AuthorID, FirstName, LastName and YearBorn columns.
+     *
+     * @param rowSet the JdbcRowSet containing the author records
+     * @param heading the heading to display above the records
+     * @throws SQLException if a database access error occurs
+     */
+    private static void displayRowSet(JdbcRowSet rowSet, String heading)
+            throws SQLException {
+
+        System.out.println("\n" + heading);
+        System.out.println("----------------------------------------");
+
+        while (rowSet.next()) {
+
+            System.out.println(
+                    rowSet.getInt("AuthorID") + "\t" +
+                            rowSet.getString("FirstName") + "\t" +
+                            rowSet.getString("LastName") + "\t" +
+                            rowSet.getInt("YearBorn")
+            );
+        }
+
+        System.out.println();
+    }
 }
