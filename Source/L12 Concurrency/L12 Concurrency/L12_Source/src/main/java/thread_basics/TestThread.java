@@ -9,16 +9,16 @@ public class TestThread {
     // Create threads
 //    HelloThread t1 = new HelloThread();
 //    GoodByeThread t2 = new GoodByeThread();
-//
 
-    PrintMessageThread t1 = new PrintMessageThread("Hello World ", 100);
-    PrintMessageThread t2 = new PrintMessageThread("GoodBye World ", 100);
+
+    PrintMessageThread t1 = new PrintMessageThread("Hello World ", 1000);
+    PrintMessageThread t2 = new PrintMessageThread("GoodBye World ", 1000);
     // Start threads
     t1.start();
     t2.start();
 
-    t1.join();
-    t2.join();
+//    t1.join();
+//    t2.join();
 
 
     System.out.println("done!");
@@ -41,7 +41,7 @@ class HelloThread extends Thread {
 
 ////////////////////////////////////////////////////////////////////////////////////
 // The thread class for printing "Goodbye" 100 times
-class GoodByeThread extends Thread {
+class GoodByeThread extends  Thread {
 
   final String message = "Goodbye";
   final int count = 100;

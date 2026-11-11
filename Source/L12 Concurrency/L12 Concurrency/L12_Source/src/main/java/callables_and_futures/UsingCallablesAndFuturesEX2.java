@@ -14,11 +14,11 @@ public class UsingCallablesAndFuturesEX2 {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         List<Callable<Integer>> tasks = Arrays.asList(
-                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
-                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
-                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
-                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1),
-                () -> ThreadLocalRandom.current().nextInt(1, 100 + 1));
+                () -> ThreadLocalRandom.current().nextInt(1, 10 + 1),
+                () -> ThreadLocalRandom.current().nextInt(11, 20 + 1),
+                () -> ThreadLocalRandom.current().nextInt(21, 30 + 1),
+                () -> ThreadLocalRandom.current().nextInt(31, 40 + 1),
+                () -> ThreadLocalRandom.current().nextInt(41, 50 + 1));
 
         ExecutorService exe = Executors.newCachedThreadPool();
         List<Future<Integer>> futures = exe.invokeAll(tasks);

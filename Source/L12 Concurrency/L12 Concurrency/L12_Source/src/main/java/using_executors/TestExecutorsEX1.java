@@ -24,6 +24,8 @@ public class TestExecutorsEX1 {
         ExecutorService exe = Executors.newCachedThreadPool();
         exe.submit(hello);
         exe.submit(goodbye);
+
+        exe.shutdown();
         
       
     }//end main
