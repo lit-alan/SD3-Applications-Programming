@@ -12,6 +12,8 @@ import java.util.List;
 public class ConvertFromCSV {
     public static void main(String[] args) {
        try (FileReader reader = new FileReader("authors.csv")) {
+           //Reads the CSV file and converts each row into an Author object,
+           //mapping columns using the Author class annotations.
                 List<Author> authorsList = new CsvToBeanBuilder<Author>(reader)
                         .withType(Author.class)
                         .build()

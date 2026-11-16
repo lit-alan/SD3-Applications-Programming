@@ -13,8 +13,9 @@ public class ConvertFromXML {
 
         XmlMapper xmlMapper = new XmlMapper();
 
-        //Reading from the XML file and convert to a list of Author objects
         try {
+            //Reads authors.xml and deserialises its contents into a List of
+            //Author objects using Jackson's XmlMapper.
             List<Author> authorsList = xmlMapper.readValue(new File("authors.xml"), new TypeReference<List<Author>>(){});
 
             System.out.println("XML file read successfully. Contents:");

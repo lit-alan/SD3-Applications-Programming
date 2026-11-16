@@ -12,7 +12,7 @@ public class ConvertFromJSON {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            //Reading from the JSON file and convert to a list of Author objects
+            //reads authors.json and deserialises its contents into a List of Author objects using Jackson's ObjectMapper.
             List<Author> authorsList = mapper.readValue(new File("authors.json"), new TypeReference<List<Author>>(){});
             System.out.println("JSON file read successfully. Contents:");
 
